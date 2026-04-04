@@ -18,7 +18,7 @@ if(file.exists(winscp_exe)) {
   message("Warning: WinSCP.com not found at ", winscp_exe)
 }
 
-# --- SHINY APP ---
+# --- SHINY APP --- TEAMMATES WORK HERE
 ui <- fluidPage(
   titlePanel("Cluster Test Upload"),
   fileInput("file1", "Choose PDF", accept = ".pdf"),
