@@ -1,0 +1,567 @@
+. 2026-04-04 10:09:57.306 --------------------------------------------------------------------------
+. 2026-04-04 10:09:57.310 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-04 10:09:57.310 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-04 10:09:57.310 Log level: Normal
+. 2026-04-04 10:09:57.310 Local account: GAMINGLAPTOP\theya
+. 2026-04-04 10:09:57.310 Working directory: C:\Users\theya\Downloads
+. 2026-04-04 10:09:57.310 Process ID: 26904
+. 2026-04-04 10:09:57.320 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-04 10:09:57.320 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_14956_634 "/log=C:\Users\theya\Downloads\winscp_log.txt" "/script=C:\Users\theya\Downloads\winscp_sync.txt" 
+. 2026-04-04 10:09:57.320 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-04 10:09:57.320 Login time: Saturday, April 4, 2026 10:09:57 AM
+. 2026-04-04 10:09:57.320 --------------------------------------------------------------------------
+. 2026-04-04 10:09:57.320 Script: Retrospectively logging previous script records:
+> 2026-04-04 10:09:57.320 Script: option batch abort
+< 2026-04-04 10:09:57.320 Script: batch           abort     
+> 2026-04-04 10:09:57.320 Script: option confirm off
+< 2026-04-04 10:09:57.320 Script: confirm         off       
+> 2026-04-04 10:09:57.320 Script: open sftp://elliotg2:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+. 2026-04-04 10:09:57.320 --------------------------------------------------------------------------
+. 2026-04-04 10:09:57.320 Session name: elliotg2@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-04 10:09:57.320 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-04 10:09:57.320 User name: elliotg2 (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-04 10:09:57.320 Tunnel: No
+. 2026-04-04 10:09:57.320 Transfer Protocol: SFTP
+. 2026-04-04 10:09:57.320 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-04 10:09:57.320 Disable Nagle: No
+. 2026-04-04 10:09:57.320 Proxy: None
+. 2026-04-04 10:09:57.320 Send buffer: 262144
+. 2026-04-04 10:09:57.320 Compression: No
+. 2026-04-04 10:09:57.320 Bypass authentication: No
+. 2026-04-04 10:09:57.320 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-04 10:09:57.320 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-04 10:09:57.320 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-04 10:09:57.320 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-04 10:09:57.320 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-04 10:09:57.320 Simple channel: Yes
+. 2026-04-04 10:09:57.320 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-04 10:09:57.320 Shell: default
+. 2026-04-04 10:09:57.320 EOL: LF, UTF: Auto
+. 2026-04-04 10:09:57.320 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-04 10:09:57.320 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-04 10:09:57.320 SFTP Bugs: Auto,Auto
+. 2026-04-04 10:09:57.320 SFTP Server: default
+. 2026-04-04 10:09:57.320 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-04 10:09:57.320 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-04 10:09:57.320 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-04 10:09:57.320 DST mode: Unix
+. 2026-04-04 10:09:57.320 --------------------------------------------------------------------------
+< 2026-04-04 10:09:57.320 Script: Searching for host...
+. 2026-04-04 10:09:57.320 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-04 10:09:57.330 Connecting to 130.85.12.135 port 22
+. 2026-04-04 10:09:57.345 Connected to 130.85.12.135 (from 130.85.46.68:52788)
+< 2026-04-04 10:09:57.345 Script: Connecting to host...
+. 2026-04-04 10:09:57.345 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-04 10:09:57.345 Connected to 130.85.12.135 (from 130.85.46.68:52788)
+. 2026-04-04 10:09:57.374 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-04 10:09:57.374 Using SSH protocol version 2
+. 2026-04-04 10:09:57.374 Have a known host key of type ssh-ed25519
+. 2026-04-04 10:09:57.392 Enabling strict key exchange semantics
+. 2026-04-04 10:09:57.392 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-04 10:09:57.490 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-04 10:09:57.490 Host key fingerprint is:
+. 2026-04-04 10:09:57.490 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-04 10:09:57.497 Script: Authenticating...
+. 2026-04-04 10:09:57.497 Host key matches cached key
+. 2026-04-04 10:09:57.497 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2026-04-04 10:09:57.497 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2026-04-04 10:09:57.497 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2026-04-04 10:09:57.497 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2026-04-04 10:09:57.513 Using username "elliotg2".
+< 2026-04-04 10:09:57.513 Script: Using username "elliotg2".
+. 2026-04-04 10:09:57.541 Server offered these authentication methods: publickey,gssapi-with-mic,keyboard-interactive
+. 2026-04-04 10:09:57.541 Using SSPI from SECUR32.DLL
+. 2026-04-04 10:09:57.541 Trying gssapi-with-mic...
+. 2026-04-04 10:09:57.541 Attempting GSSAPI authentication
+. 2026-04-04 10:09:57.570 GSSAPI authentication initialisation failed
+. 2026-04-04 10:09:57.570 No credentials are available in the security package.
+. 2026-04-04 10:09:57.570 Attempting keyboard-interactive authentication
+. 2026-04-04 10:09:57.591 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, "Password: ")
+. 2026-04-04 10:09:57.591 Using stored password.
+< 2026-04-04 10:09:57.591 Script: Authenticating with pre-entered password.
+. 2026-04-04 10:09:59.679 Keyboard-interactive authentication failed
+! 2026-04-04 10:09:59.679 Access denied
+< 2026-04-04 10:09:59.679 Script: Access denied.
+. 2026-04-04 10:09:59.679 Server offered these authentication methods: publickey,gssapi-with-mic,keyboard-interactive
+. 2026-04-04 10:09:59.679 Attempting keyboard-interactive authentication
+. 2026-04-04 10:09:59.702 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, "Password: ")
+. 2026-04-04 10:09:59.702 Prompting user for the credentials.
+. 2026-04-04 10:09:59.702 Prompt cancelled.
+. 2026-04-04 10:09:59.702 User aborted at keyboard-interactive authentication prompt
+. 2026-04-04 10:09:59.702 Attempt to close connection due to fatal exception:
+* 2026-04-04 10:09:59.702 **Authentication failed.**
+. 2026-04-04 10:09:59.702 Closing connection.
+< 2026-04-04 10:09:59.706 Script: Authentication failed.
+< 2026-04-04 10:09:59.706 Authentication log (see session log for details):
+< 2026-04-04 10:09:59.706 Using username "elliotg2".
+< 2026-04-04 10:09:59.706 Access denied.
+< 2026-04-04 10:09:59.706 
+< 2026-04-04 10:09:59.706 Authentication failed.
+. 2026-04-04 10:14:13.571 --------------------------------------------------------------------------
+. 2026-04-04 10:14:13.571 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-04 10:14:13.571 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-04 10:14:13.571 Log level: Normal
+. 2026-04-04 10:14:13.571 Local account: GAMINGLAPTOP\theya
+. 2026-04-04 10:14:13.571 Working directory: C:\Users\theya\Downloads
+. 2026-04-04 10:14:13.571 Process ID: 5152
+. 2026-04-04 10:14:13.587 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-04 10:14:13.587 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_4900_596 "/log=C:\Users\theya\Downloads\winscp_log.txt" "/script=C:\Users\theya\Downloads\winscp_sync.txt" 
+. 2026-04-04 10:14:13.587 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-04 10:14:13.587 Login time: Saturday, April 4, 2026 10:14:13 AM
+. 2026-04-04 10:14:13.587 --------------------------------------------------------------------------
+. 2026-04-04 10:14:13.587 Script: Retrospectively logging previous script records:
+> 2026-04-04 10:14:13.587 Script: option batch abort
+< 2026-04-04 10:14:13.587 Script: batch           abort     
+> 2026-04-04 10:14:13.587 Script: option confirm off
+< 2026-04-04 10:14:13.587 Script: confirm         off       
+> 2026-04-04 10:14:13.587 Script: open sftp://elliotg2:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+. 2026-04-04 10:14:13.587 --------------------------------------------------------------------------
+. 2026-04-04 10:14:13.587 Session name: elliotg2@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-04 10:14:13.587 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-04 10:14:13.587 User name: elliotg2 (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-04 10:14:13.587 Tunnel: No
+. 2026-04-04 10:14:13.587 Transfer Protocol: SFTP
+. 2026-04-04 10:14:13.587 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-04 10:14:13.587 Disable Nagle: No
+. 2026-04-04 10:14:13.587 Proxy: None
+. 2026-04-04 10:14:13.587 Send buffer: 262144
+. 2026-04-04 10:14:13.587 Compression: No
+. 2026-04-04 10:14:13.587 Bypass authentication: No
+. 2026-04-04 10:14:13.587 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-04 10:14:13.587 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-04 10:14:13.587 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-04 10:14:13.587 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-04 10:14:13.587 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-04 10:14:13.587 Simple channel: Yes
+. 2026-04-04 10:14:13.587 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-04 10:14:13.587 Shell: default
+. 2026-04-04 10:14:13.587 EOL: LF, UTF: Auto
+. 2026-04-04 10:14:13.587 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-04 10:14:13.587 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-04 10:14:13.587 SFTP Bugs: Auto,Auto
+. 2026-04-04 10:14:13.587 SFTP Server: default
+. 2026-04-04 10:14:13.587 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-04 10:14:13.587 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-04 10:14:13.587 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-04 10:14:13.587 DST mode: Unix
+. 2026-04-04 10:14:13.587 --------------------------------------------------------------------------
+< 2026-04-04 10:14:13.587 Script: Searching for host...
+. 2026-04-04 10:14:13.587 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-04 10:14:13.597 Connecting to 130.85.12.135 port 22
+. 2026-04-04 10:14:13.613 Connected to 130.85.12.135 (from 130.85.46.68:61460)
+< 2026-04-04 10:14:13.613 Script: Connecting to host...
+. 2026-04-04 10:14:13.617 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-04 10:14:13.617 Connected to 130.85.12.135 (from 130.85.46.68:61460)
+. 2026-04-04 10:14:13.643 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-04 10:14:13.643 Using SSH protocol version 2
+. 2026-04-04 10:14:13.643 Have a known host key of type ssh-ed25519
+. 2026-04-04 10:14:13.663 Enabling strict key exchange semantics
+. 2026-04-04 10:14:13.664 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-04 10:14:13.760 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-04 10:14:13.764 Host key fingerprint is:
+. 2026-04-04 10:14:13.764 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-04 10:14:13.764 Script: Authenticating...
+. 2026-04-04 10:14:13.765 Host key matches cached key
+. 2026-04-04 10:14:13.765 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2026-04-04 10:14:13.765 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2026-04-04 10:14:13.765 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2026-04-04 10:14:13.765 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2026-04-04 10:14:13.782 Using username "elliotg2".
+< 2026-04-04 10:14:13.782 Script: Using username "elliotg2".
+. 2026-04-04 10:14:13.803 Server offered these authentication methods: publickey,gssapi-with-mic,keyboard-interactive
+. 2026-04-04 10:14:13.803 Using SSPI from SECUR32.DLL
+. 2026-04-04 10:14:13.803 Trying gssapi-with-mic...
+. 2026-04-04 10:14:13.803 Attempting GSSAPI authentication
+. 2026-04-04 10:14:13.831 GSSAPI authentication initialisation failed
+. 2026-04-04 10:14:13.831 No credentials are available in the security package.
+. 2026-04-04 10:14:13.831 Attempting keyboard-interactive authentication
+. 2026-04-04 10:14:13.855 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, "Password: ")
+. 2026-04-04 10:14:13.855 Using stored password.
+< 2026-04-04 10:14:13.855 Script: Authenticating with pre-entered password.
+. 2026-04-04 10:14:14.572 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, <no prompt>)
+. 2026-04-04 10:14:14.572 Ignoring empty SSH server authentication request
+. 2026-04-04 10:14:14.587 Access granted
+. 2026-04-04 10:14:14.587 Opening main session channel
+. 2026-04-04 10:14:14.682 Opened main channel
+. 2026-04-04 10:14:14.699 Started a shell/command
+< 2026-04-04 10:14:14.699 Script: Authenticated.
+. 2026-04-04 10:14:14.699 --------------------------------------------------------------------------
+. 2026-04-04 10:14:14.699 Using SFTP protocol.
+. 2026-04-04 10:14:14.699 Doing startup conversation with host.
+< 2026-04-04 10:14:14.699 Script: Starting the session...
+. 2026-04-04 10:14:14.701 Well known server, allowing SFTP version 6.
+> 2026-04-04 10:14:14.701 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2026-04-04 10:14:16.362 Type: SSH_FXP_VERSION, Size: 238, Number: -1
+. 2026-04-04 10:14:16.362 SFTP version 3 negotiated.
+. 2026-04-04 10:14:16.362 Supports extension posix-rename@openssh.com="1"
+. 2026-04-04 10:14:16.362 Supports statvfs@openssh.com extension version 2
+. 2026-04-04 10:14:16.362 Unknown server extension fstatvfs@openssh.com="2"
+. 2026-04-04 10:14:16.362 Supports hardlink@openssh.com extension version 1
+. 2026-04-04 10:14:16.362 Unknown server extension fsync@openssh.com="1"
+. 2026-04-04 10:14:16.362 Unknown server extension lsetstat@openssh.com="1"
+. 2026-04-04 10:14:16.362 Supports limits@openssh.com extension version 1
+. 2026-04-04 10:14:16.362 Unknown server extension expand-path@openssh.com="1"
+. 2026-04-04 10:14:16.362 We believe the server has signed timestamps bug
+. 2026-04-04 10:14:16.362 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+> 2026-04-04 10:14:16.362 Type: SSH_FXP_EXTENDED, Size: 27, Number: 200
+< 2026-04-04 10:14:16.378 Type: SSH_FXP_EXTENDED_REPLY, Size: 37, Number: 200
+. 2026-04-04 10:14:16.378 Limiting packet size to server's limit of 262144 + 4 bytes
+. 2026-04-04 10:14:16.378 Getting current directory name.
+. 2026-04-04 10:14:16.378 Getting real path for '.'
+> 2026-04-04 10:14:16.378 Type: SSH_FXP_REALPATH, Size: 10, Number: 272
+< 2026-04-04 10:14:16.396 Type: SSH_FXP_NAME, Size: 49, Number: 272
+. 2026-04-04 10:14:16.396 Real path is '/home/elliotg2'
+. 2026-04-04 10:14:16.396 Startup conversation with host finished.
+< 2026-04-04 10:14:16.396 Script: Session started.
+< 2026-04-04 10:14:16.396 Script: Active session: [1] elliotg2@chip.rs.umbc.edu
+> 2026-04-04 10:14:16.397 Script: keepuptodate C:\Users\theya\downloads\testPDFs /umbc/class/cmsc447sp26/common/autoUploadTests
+< 2026-04-04 10:14:16.397 Script: Watching for changes, press Ctrl-C to abort...
+< 2026-04-04 10:14:16.397 Script: Scanning 'C:\Users\theya\downloads\testPDFs' for subdirectories...
+. 2026-04-04 10:14:16.397 Keep up to date: Scanning 'C:\Users\theya\downloads\testPDFs' for subdirectories...
+< 2026-04-04 10:14:16.397 Script: Watching for changes in 1 directories...
+. 2026-04-04 10:14:16.397 Keep up to date: Watching for changes in 1 directories...
+< 2026-04-04 10:15:55.202 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:15:55.202 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:15:55.202 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:15:55.203 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:15:54.697Z] [0] excluded from synchronization
+. 2026-04-04 10:15:55.203 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:15:55.203 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:15:55.203 Listing directory "/umbc/class/cmsc447sp26/common/autoUploadTests".
+> 2026-04-04 10:15:55.203 Type: SSH_FXP_OPENDIR, Size: 55, Number: 523
+< 2026-04-04 10:15:55.219 Type: SSH_FXP_HANDLE, Size: 13, Number: 523
+> 2026-04-04 10:15:55.219 Type: SSH_FXP_READDIR, Size: 13, Number: 780
+< 2026-04-04 10:15:55.238 Type: SSH_FXP_NAME, Size: 213, Number: 780
+> 2026-04-04 10:15:55.238 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2026-04-04 10:15:55.255 Type: SSH_FXP_STATUS, Size: 28, Number: 1036
+< 2026-04-04 10:15:55.255 Status code: 1
+> 2026-04-04 10:15:55.255 Type: SSH_FXP_CLOSE, Size: 13, Number: 1284
+. 2026-04-04 10:15:55.255 .;d;0;2026-04-04T13:19:58.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:15:55.255 ..;d;0;2026-04-04T13:29:59.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:15:55.255 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] is new
+. 2026-04-04 10:15:55.255 Synchronizing local directory 'C:\Users\theya\downloads\testPDFs\' with remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-04 10:15:55.255 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 174,740
+. 2026-04-04 10:15:55.255   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:15:55.255   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:15:55.255   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:15:55.256 File: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740]
+< 2026-04-04 10:15:55.256 Script: Local 'C:\Users\theya\downloads\testPDFs' => Remote '/umbc/class/cmsc447sp26/common/autoUploadTests'
+. 2026-04-04 10:15:55.256 Copying "C:\Users\theya\downloads\testPDFs\calc_questions.pdf" to remote directory started.
+. 2026-04-04 10:15:55.257 Binary transfer mode selected.
+. 2026-04-04 10:15:55.257 Checking existence of file.
+> 2026-04-04 10:15:55.257 Type: SSH_FXP_LSTAT, Size: 74, Number: 1543
+< 2026-04-04 10:15:55.273 Type: SSH_FXP_STATUS, Size: 24, Number: 1284
+. 2026-04-04 10:15:55.273 Discarding reserved response
+< 2026-04-04 10:15:55.273 Type: SSH_FXP_STATUS, Size: 29, Number: 1543
+< 2026-04-04 10:15:55.273 Status code: 2
+. 2026-04-04 10:15:55.273 Checking existence of partially transferred file.
+> 2026-04-04 10:15:55.273 Type: SSH_FXP_LSTAT, Size: 83, Number: 1799
+< 2026-04-04 10:15:55.291 Type: SSH_FXP_STATUS, Size: 29, Number: 1799
+< 2026-04-04 10:15:55.291 Status code: 2
+. 2026-04-04 10:15:55.291 Opening remote file.
+> 2026-04-04 10:15:55.291 Type: SSH_FXP_OPEN, Size: 99, Number: 2051
+< 2026-04-04 10:15:55.308 Type: SSH_FXP_HANDLE, Size: 13, Number: 2051
+> 2026-04-04 10:15:55.308 Type: SSH_FXP_WRITE, Size: 32761, Number: 2566
+. 2026-04-04 10:15:55.309 Skipped 5 SSH_FXP_WRITE packets
+> 2026-04-04 10:15:55.309 Type: SSH_FXP_CLOSE, Size: 13, Number: 4100
+< 2026-04-04 10:15:55.344 Type: SSH_FXP_STATUS, Size: 24, Number: 2566
+< 2026-04-04 10:15:55.344 Status code: 0
+. 2026-04-04 10:15:55.382 Skipped 5 SSH_FXP_STATUS packets
+< 2026-04-04 10:15:55.382 Type: SSH_FXP_STATUS, Size: 24, Number: 4100
+< 2026-04-04 10:15:55.382 Status code: 0
+> 2026-04-04 10:15:55.382 Type: SSH_FXP_RENAME, Size: 152, Number: 4370
+< 2026-04-04 10:15:55.401 Type: SSH_FXP_STATUS, Size: 24, Number: 4370
+< 2026-04-04 10:15:55.401 Status code: 0
+. 2026-04-04 10:15:55.401 Preserving timestamp [2026-04-04T14:15:54.000Z]
+> 2026-04-04 10:15:55.401 Type: SSH_FXP_SETSTAT, Size: 86, Number: 2313
+< 2026-04-04 10:15:55.416 Type: SSH_FXP_STATUS, Size: 24, Number: 2313
+< 2026-04-04 10:15:55.416 Status code: 0
+. 2026-04-04 10:15:55.416 Transfer done: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf' [174740]
+. 2026-04-04 10:15:55.416 Copying finished: Transferred: 174,740, Elapsed: 0:00:00, CPS: 1,085,341/s
+< 2026-04-04 10:15:55.932 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:15:55.932 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:15:55.932 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:15:55.932 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:15:54.697Z] [0] excluded from synchronization
+. 2026-04-04 10:15:55.932 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:15:55.932 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:15:55.932 Listing directory "/umbc/class/cmsc447sp26/common/autoUploadTests".
+> 2026-04-04 10:15:55.932 Type: SSH_FXP_OPENDIR, Size: 55, Number: 4619
+< 2026-04-04 10:15:55.949 Type: SSH_FXP_HANDLE, Size: 13, Number: 4619
+> 2026-04-04 10:15:55.949 Type: SSH_FXP_READDIR, Size: 13, Number: 4876
+< 2026-04-04 10:15:55.966 Type: SSH_FXP_NAME, Size: 368, Number: 4876
+> 2026-04-04 10:15:55.966 Type: SSH_FXP_READDIR, Size: 13, Number: 5132
+< 2026-04-04 10:15:55.982 Type: SSH_FXP_STATUS, Size: 28, Number: 5132
+< 2026-04-04 10:15:55.982 Status code: 1
+> 2026-04-04 10:15:55.982 Type: SSH_FXP_CLOSE, Size: 13, Number: 5380
+. 2026-04-04 10:15:55.982 .;d;0;2026-04-04T14:15:55.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:15:55.982 ..;d;0;2026-04-04T13:29:59.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:15:55.982 calc_questions.pdf.processed;-;174740;2026-04-04T14:15:54.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:15:56.005 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf.processed' [2026-04-04T14:15:54.000Z] [174740] is new
+. 2026-04-04 10:15:56.005 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] is new
+. 2026-04-04 10:15:56.005 Synchronizing local directory 'C:\Users\theya\downloads\testPDFs\' with remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-04 10:15:56.005 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 174,740
+. 2026-04-04 10:15:56.005   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:15:56.005   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:15:56.005   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:15:56.005 File: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740]
+< 2026-04-04 10:15:56.005 Script: Local 'C:\Users\theya\downloads\testPDFs' => Remote '/umbc/class/cmsc447sp26/common/autoUploadTests'
+. 2026-04-04 10:15:56.005 Copying "C:\Users\theya\downloads\testPDFs\calc_questions.pdf" to remote directory started.
+. 2026-04-04 10:15:56.005 Binary transfer mode selected.
+. 2026-04-04 10:15:56.005 Checking existence of file.
+> 2026-04-04 10:15:56.005 Type: SSH_FXP_LSTAT, Size: 74, Number: 5639
+< 2026-04-04 10:15:56.022 Type: SSH_FXP_STATUS, Size: 24, Number: 5380
+. 2026-04-04 10:15:56.022 Discarding reserved response
+< 2026-04-04 10:15:56.022 Type: SSH_FXP_STATUS, Size: 29, Number: 5639
+< 2026-04-04 10:15:56.022 Status code: 2
+. 2026-04-04 10:15:56.022 Checking existence of partially transferred file.
+> 2026-04-04 10:15:56.022 Type: SSH_FXP_LSTAT, Size: 83, Number: 5895
+< 2026-04-04 10:15:56.039 Type: SSH_FXP_STATUS, Size: 29, Number: 5895
+< 2026-04-04 10:15:56.039 Status code: 2
+. 2026-04-04 10:15:56.039 Opening remote file.
+> 2026-04-04 10:15:56.039 Type: SSH_FXP_OPEN, Size: 99, Number: 6147
+< 2026-04-04 10:15:56.056 Type: SSH_FXP_HANDLE, Size: 13, Number: 6147
+> 2026-04-04 10:15:56.056 Type: SSH_FXP_WRITE, Size: 32761, Number: 6662
+. 2026-04-04 10:15:56.057 Skipped 5 SSH_FXP_WRITE packets
+> 2026-04-04 10:15:56.057 Type: SSH_FXP_CLOSE, Size: 13, Number: 8196
+< 2026-04-04 10:15:56.079 Type: SSH_FXP_STATUS, Size: 24, Number: 6662
+< 2026-04-04 10:15:56.079 Status code: 0
+. 2026-04-04 10:15:56.134 Skipped 5 SSH_FXP_STATUS packets
+< 2026-04-04 10:15:56.134 Type: SSH_FXP_STATUS, Size: 24, Number: 8196
+< 2026-04-04 10:15:56.134 Status code: 0
+> 2026-04-04 10:15:56.134 Type: SSH_FXP_RENAME, Size: 152, Number: 8466
+< 2026-04-04 10:15:56.152 Type: SSH_FXP_STATUS, Size: 24, Number: 8466
+< 2026-04-04 10:15:56.152 Status code: 0
+. 2026-04-04 10:15:56.152 Preserving timestamp [2026-04-04T14:15:54.000Z]
+> 2026-04-04 10:15:56.152 Type: SSH_FXP_SETSTAT, Size: 86, Number: 6409
+< 2026-04-04 10:15:56.169 Type: SSH_FXP_STATUS, Size: 24, Number: 6409
+< 2026-04-04 10:15:56.169 Status code: 0
+. 2026-04-04 10:15:56.169 Transfer done: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf' [174740]
+. 2026-04-04 10:15:56.169 Copying finished: Transferred: 174,740, Elapsed: 0:00:00, CPS: 1,065,487/s
+. 2026-04-04 10:15:56.860 Increasing send buffer from 262144 to 524288
+< 2026-04-04 10:16:28.850 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:28.850 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:28.850 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:16:28.850 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:16:28.340Z] [0] excluded from synchronization
+. 2026-04-04 10:16:28.850 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:16:28.850 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:16:28.850 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] included to synchronization
+. 2026-04-04 10:16:28.850 Listing directory "/umbc/class/cmsc447sp26/common/autoUploadTests".
+> 2026-04-04 10:16:28.850 Type: SSH_FXP_OPENDIR, Size: 55, Number: 8715
+< 2026-04-04 10:16:28.865 Type: SSH_FXP_HANDLE, Size: 13, Number: 8715
+> 2026-04-04 10:16:28.865 Type: SSH_FXP_READDIR, Size: 13, Number: 8972
+< 2026-04-04 10:16:28.881 Type: SSH_FXP_NAME, Size: 368, Number: 8972
+> 2026-04-04 10:16:28.881 Type: SSH_FXP_READDIR, Size: 13, Number: 9228
+< 2026-04-04 10:16:28.900 Type: SSH_FXP_STATUS, Size: 28, Number: 9228
+< 2026-04-04 10:16:28.900 Status code: 1
+> 2026-04-04 10:16:28.900 Type: SSH_FXP_CLOSE, Size: 13, Number: 9476
+. 2026-04-04 10:16:28.900 .;d;0;2026-04-04T14:16:00.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:28.900 ..;d;0;2026-04-04T13:29:59.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:28.900 calc_questions.pdf.processed;-;174740;2026-04-04T14:15:54.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:28.900 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf.processed' [2026-04-04T14:15:54.000Z] [174740] is new
+. 2026-04-04 10:16:28.900 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] is new
+. 2026-04-04 10:16:28.900 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] is new
+. 2026-04-04 10:16:28.900 Synchronizing local directory 'C:\Users\theya\downloads\testPDFs\' with remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-04 10:16:28.900 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 174,740
+. 2026-04-04 10:16:28.900   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:16:28.900   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:16:28.900   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:16:28.900 File: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740]
+< 2026-04-04 10:16:28.900 Script: Local 'C:\Users\theya\downloads\testPDFs' => Remote '/umbc/class/cmsc447sp26/common/autoUploadTests'
+. 2026-04-04 10:16:28.900 Copying "C:\Users\theya\downloads\testPDFs\calc_questions.pdf" to remote directory started.
+. 2026-04-04 10:16:28.900 Binary transfer mode selected.
+. 2026-04-04 10:16:28.900 Checking existence of file.
+> 2026-04-04 10:16:28.900 Type: SSH_FXP_LSTAT, Size: 74, Number: 9735
+< 2026-04-04 10:16:28.919 Type: SSH_FXP_STATUS, Size: 24, Number: 9476
+. 2026-04-04 10:16:28.919 Discarding reserved response
+< 2026-04-04 10:16:28.919 Type: SSH_FXP_STATUS, Size: 29, Number: 9735
+< 2026-04-04 10:16:28.919 Status code: 2
+. 2026-04-04 10:16:28.919 Checking existence of partially transferred file.
+> 2026-04-04 10:16:28.919 Type: SSH_FXP_LSTAT, Size: 83, Number: 9991
+< 2026-04-04 10:16:28.936 Type: SSH_FXP_STATUS, Size: 29, Number: 9991
+< 2026-04-04 10:16:28.936 Status code: 2
+. 2026-04-04 10:16:28.936 Opening remote file.
+> 2026-04-04 10:16:28.936 Type: SSH_FXP_OPEN, Size: 99, Number: 10243
+< 2026-04-04 10:16:28.953 Type: SSH_FXP_HANDLE, Size: 13, Number: 10243
+> 2026-04-04 10:16:28.953 Type: SSH_FXP_WRITE, Size: 32761, Number: 10758
+. 2026-04-04 10:16:28.953 Skipped 5 SSH_FXP_WRITE packets
+> 2026-04-04 10:16:28.953 Type: SSH_FXP_CLOSE, Size: 13, Number: 12292
+< 2026-04-04 10:16:28.976 Type: SSH_FXP_STATUS, Size: 24, Number: 10758
+< 2026-04-04 10:16:28.976 Status code: 0
+. 2026-04-04 10:16:28.991 Skipped 5 SSH_FXP_STATUS packets
+< 2026-04-04 10:16:28.991 Type: SSH_FXP_STATUS, Size: 24, Number: 12292
+< 2026-04-04 10:16:28.991 Status code: 0
+> 2026-04-04 10:16:28.991 Type: SSH_FXP_RENAME, Size: 152, Number: 12562
+< 2026-04-04 10:16:29.010 Type: SSH_FXP_STATUS, Size: 24, Number: 12562
+< 2026-04-04 10:16:29.010 Status code: 0
+. 2026-04-04 10:16:29.010 Preserving timestamp [2026-04-04T14:15:54.000Z]
+> 2026-04-04 10:16:29.010 Type: SSH_FXP_SETSTAT, Size: 86, Number: 10505
+< 2026-04-04 10:16:29.025 Type: SSH_FXP_STATUS, Size: 24, Number: 10505
+< 2026-04-04 10:16:29.025 Status code: 0
+. 2026-04-04 10:16:29.025 Transfer done: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf' [174740]
+. 2026-04-04 10:16:29.025 Copying finished: Transferred: 174,740, Elapsed: 0:00:00, CPS: 1,397,920/s
+. 2026-04-04 10:16:29.025 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 32,100
+. 2026-04-04 10:16:29.025   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:16:29.025   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:16:29.025   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:16:29.028 File: 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100]
+. 2026-04-04 10:16:29.028 Copying "C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf" to remote directory started.
+. 2026-04-04 10:16:29.028 Binary transfer mode selected.
+. 2026-04-04 10:16:29.028 Opening remote file.
+> 2026-04-04 10:16:29.028 Type: SSH_FXP_OPEN, Size: 101, Number: 12803
+< 2026-04-04 10:16:29.045 Type: SSH_FXP_HANDLE, Size: 13, Number: 12803
+> 2026-04-04 10:16:29.045 Type: SSH_FXP_WRITE, Size: 32125, Number: 13318
+> 2026-04-04 10:16:29.045 Type: SSH_FXP_CLOSE, Size: 13, Number: 13572
+> 2026-04-04 10:16:29.045 Type: SSH_FXP_SETSTAT, Size: 97, Number: 13065
+< 2026-04-04 10:16:29.065 Type: SSH_FXP_STATUS, Size: 24, Number: 13318
+< 2026-04-04 10:16:29.065 Status code: 0
+< 2026-04-04 10:16:29.065 Type: SSH_FXP_STATUS, Size: 24, Number: 13572
+< 2026-04-04 10:16:29.065 Status code: 0
+. 2026-04-04 10:16:29.065 Preserving timestamp [2026-04-04T14:16:28.000Z]
+< 2026-04-04 10:16:29.079 Type: SSH_FXP_STATUS, Size: 24, Number: 13065
+< 2026-04-04 10:16:29.079 Status code: 0
+. 2026-04-04 10:16:29.079 Transfer done: 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/superSimpleFormulaUpdated.pdf' [32100]
+. 2026-04-04 10:16:29.079 Copying finished: Transferred: 206,840, Elapsed: 0:00:00, CPS: 1,155,530/s
+< 2026-04-04 10:16:29.581 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:29.581 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:29.581 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:16:29.581 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:16:28.340Z] [0] excluded from synchronization
+. 2026-04-04 10:16:29.581 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:16:29.581 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:16:29.581 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] included to synchronization
+. 2026-04-04 10:16:29.581 Listing directory "/umbc/class/cmsc447sp26/common/autoUploadTests".
+> 2026-04-04 10:16:29.581 Type: SSH_FXP_OPENDIR, Size: 55, Number: 13835
+< 2026-04-04 10:16:29.597 Type: SSH_FXP_HANDLE, Size: 13, Number: 13835
+> 2026-04-04 10:16:29.597 Type: SSH_FXP_READDIR, Size: 13, Number: 14092
+< 2026-04-04 10:16:29.615 Type: SSH_FXP_NAME, Size: 660, Number: 14092
+> 2026-04-04 10:16:29.615 Type: SSH_FXP_READDIR, Size: 13, Number: 14348
+< 2026-04-04 10:16:29.631 Type: SSH_FXP_STATUS, Size: 28, Number: 14348
+< 2026-04-04 10:16:29.631 Status code: 1
+> 2026-04-04 10:16:29.631 Type: SSH_FXP_CLOSE, Size: 13, Number: 14596
+. 2026-04-04 10:16:29.631 .;d;0;2026-04-04T14:16:28.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:29.631 ..;d;0;2026-04-04T13:29:59.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:29.631 calc_questions.pdf;-;174740;2026-04-04T14:15:54.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:29.631 superSimpleFormulaUpdated.pdf;-;32100;2026-04-04T14:16:28.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:29.631 calc_questions.pdf.processed;-;174740;2026-04-04T14:15:54.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:29.635 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf.processed' [2026-04-04T14:15:54.000Z] [174740] is new
+< 2026-04-04 10:16:36.214 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:36.214 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:36.214 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:16:35.711Z] [0] excluded from synchronization
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf' [2026-04-04T14:16:35.711Z] [17929] included to synchronization
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] included to synchronization
+. 2026-04-04 10:16:36.214 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf.processed' [2026-04-04T14:15:54.000Z] [174740] is new
+. 2026-04-04 10:16:36.214 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf' [2026-04-04T14:16:35.711Z] [17929] is new
+. 2026-04-04 10:16:36.215 Synchronizing local directory 'C:\Users\theya\downloads\testPDFs\' with remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-04 10:16:36.215 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 17,929
+. 2026-04-04 10:16:36.215   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:16:36.215   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:16:36.215   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:16:36.215 File: 'C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf' [2026-04-04T14:16:35.711Z] [17929]
+< 2026-04-04 10:16:36.215 Script: Local 'C:\Users\theya\downloads\testPDFs' => Remote '/umbc/class/cmsc447sp26/common/autoUploadTests'
+. 2026-04-04 10:16:36.215 Copying "C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf" to remote directory started.
+. 2026-04-04 10:16:36.215 Binary transfer mode selected.
+. 2026-04-04 10:16:36.215 Opening remote file.
+> 2026-04-04 10:16:36.215 Type: SSH_FXP_OPEN, Size: 94, Number: 14851
+< 2026-04-04 10:16:36.215 Type: SSH_FXP_STATUS, Size: 24, Number: 14596
+. 2026-04-04 10:16:36.215 Discarding reserved response
+< 2026-04-04 10:16:36.232 Type: SSH_FXP_HANDLE, Size: 13, Number: 14851
+> 2026-04-04 10:16:36.232 Type: SSH_FXP_WRITE, Size: 17954, Number: 15366
+> 2026-04-04 10:16:36.232 Type: SSH_FXP_CLOSE, Size: 13, Number: 15620
+> 2026-04-04 10:16:36.232 Type: SSH_FXP_SETSTAT, Size: 90, Number: 15113
+< 2026-04-04 10:16:36.250 Type: SSH_FXP_STATUS, Size: 24, Number: 15366
+< 2026-04-04 10:16:36.250 Status code: 0
+< 2026-04-04 10:16:36.250 Type: SSH_FXP_STATUS, Size: 24, Number: 15620
+< 2026-04-04 10:16:36.250 Status code: 0
+. 2026-04-04 10:16:36.250 Preserving timestamp [2026-04-04T14:16:35.000Z]
+< 2026-04-04 10:16:36.266 Type: SSH_FXP_STATUS, Size: 24, Number: 15113
+< 2026-04-04 10:16:36.266 Status code: 0
+. 2026-04-04 10:16:36.266 Transfer done: 'C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/superSimpleFormula.pdf' [17929]
+. 2026-04-04 10:16:36.266 Copying finished: Transferred: 17,929, Elapsed: 0:00:00, CPS: 351,549/s
+< 2026-04-04 10:16:36.775 Script: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:36.775 Keep up to date: Change in 'C:\Users\theya\downloads\testPDFs' detected.
+. 2026-04-04 10:16:36.775 Collecting synchronization list for local directory 'C:\Users\theya\downloads\testPDFs\' and remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-04 10:16:36.775 Local file 'C:\Users\theya\downloads\testPDFs\.' [2026-04-04T14:16:35.711Z] [0] excluded from synchronization
+. 2026-04-04 10:16:36.775 Local file 'C:\Users\theya\downloads\testPDFs\..' [2026-04-04T14:14:10.334Z] [0] excluded from synchronization
+. 2026-04-04 10:16:36.775 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] included to synchronization
+. 2026-04-04 10:16:36.775 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormula.pdf' [2026-04-04T14:16:35.711Z] [17929] included to synchronization
+. 2026-04-04 10:16:36.775 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] included to synchronization
+. 2026-04-04 10:16:36.775 Listing directory "/umbc/class/cmsc447sp26/common/autoUploadTests".
+> 2026-04-04 10:16:36.775 Type: SSH_FXP_OPENDIR, Size: 55, Number: 15883
+< 2026-04-04 10:16:36.793 Type: SSH_FXP_HANDLE, Size: 13, Number: 15883
+> 2026-04-04 10:16:36.793 Type: SSH_FXP_READDIR, Size: 13, Number: 16140
+< 2026-04-04 10:16:36.810 Type: SSH_FXP_NAME, Size: 688, Number: 16140
+> 2026-04-04 10:16:36.810 Type: SSH_FXP_READDIR, Size: 13, Number: 16396
+< 2026-04-04 10:16:36.827 Type: SSH_FXP_STATUS, Size: 28, Number: 16396
+< 2026-04-04 10:16:36.827 Status code: 1
+> 2026-04-04 10:16:36.827 Type: SSH_FXP_CLOSE, Size: 13, Number: 16644
+. 2026-04-04 10:16:36.827 .;d;0;2026-04-04T14:16:35.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:36.827 ..;d;0;2026-04-04T13:29:59.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-04 10:16:36.827 calc_questions.pdf.processed;-;174740;2026-04-04T14:15:54.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:36.827 superSimpleFormula.pdf;-;17929;2026-04-04T14:16:35.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:36.827 superSimpleFormulaUpdated.pdf.processed;-;32100;2026-04-04T14:16:28.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
+. 2026-04-04 10:16:36.827 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf.processed' [2026-04-04T14:15:54.000Z] [174740] is new
+. 2026-04-04 10:16:36.827 Remote file '/umbc/class/cmsc447sp26/common/autoUploadTests/superSimpleFormulaUpdated.pdf.processed' [2026-04-04T14:16:28.000Z] [32100] is new
+. 2026-04-04 10:16:36.827 Local file 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740] is new
+. 2026-04-04 10:16:36.827 Local file 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100] is new
+. 2026-04-04 10:16:36.827 Synchronizing local directory 'C:\Users\theya\downloads\testPDFs\' with remote directory '/umbc/class/cmsc447sp26/common/autoUploadTests/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-04 10:16:36.827 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 174,740
+. 2026-04-04 10:16:36.827   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:16:36.827   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:16:36.827   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:16:36.827 File: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' [2026-04-04T14:15:54.700Z] [174740]
+< 2026-04-04 10:16:36.827 Script: Local 'C:\Users\theya\downloads\testPDFs' => Remote '/umbc/class/cmsc447sp26/common/autoUploadTests'
+. 2026-04-04 10:16:36.827 Copying "C:\Users\theya\downloads\testPDFs\calc_questions.pdf" to remote directory started.
+. 2026-04-04 10:16:36.827 Binary transfer mode selected.
+. 2026-04-04 10:16:36.827 Checking existence of file.
+> 2026-04-04 10:16:36.827 Type: SSH_FXP_LSTAT, Size: 74, Number: 16903
+< 2026-04-04 10:16:36.845 Type: SSH_FXP_STATUS, Size: 24, Number: 16644
+. 2026-04-04 10:16:36.845 Discarding reserved response
+< 2026-04-04 10:16:36.845 Type: SSH_FXP_STATUS, Size: 29, Number: 16903
+< 2026-04-04 10:16:36.845 Status code: 2
+. 2026-04-04 10:16:36.845 Checking existence of partially transferred file.
+> 2026-04-04 10:16:36.845 Type: SSH_FXP_LSTAT, Size: 83, Number: 17159
+< 2026-04-04 10:16:36.861 Type: SSH_FXP_STATUS, Size: 29, Number: 17159
+< 2026-04-04 10:16:36.861 Status code: 2
+. 2026-04-04 10:16:36.861 Opening remote file.
+> 2026-04-04 10:16:36.861 Type: SSH_FXP_OPEN, Size: 99, Number: 17411
+< 2026-04-04 10:16:36.876 Type: SSH_FXP_HANDLE, Size: 13, Number: 17411
+> 2026-04-04 10:16:36.876 Type: SSH_FXP_WRITE, Size: 32761, Number: 17926
+. 2026-04-04 10:16:36.881 Skipped 5 SSH_FXP_WRITE packets
+> 2026-04-04 10:16:36.881 Type: SSH_FXP_CLOSE, Size: 13, Number: 19460
+< 2026-04-04 10:16:36.901 Type: SSH_FXP_STATUS, Size: 24, Number: 17926
+< 2026-04-04 10:16:36.901 Status code: 0
+. 2026-04-04 10:16:36.914 Skipped 5 SSH_FXP_STATUS packets
+< 2026-04-04 10:16:36.914 Type: SSH_FXP_STATUS, Size: 24, Number: 19460
+< 2026-04-04 10:16:36.914 Status code: 0
+> 2026-04-04 10:16:36.914 Type: SSH_FXP_RENAME, Size: 152, Number: 19730
+< 2026-04-04 10:16:36.934 Type: SSH_FXP_STATUS, Size: 24, Number: 19730
+< 2026-04-04 10:16:36.934 Status code: 0
+. 2026-04-04 10:16:36.934 Preserving timestamp [2026-04-04T14:15:54.000Z]
+> 2026-04-04 10:16:36.934 Type: SSH_FXP_SETSTAT, Size: 86, Number: 17673
+< 2026-04-04 10:16:36.951 Type: SSH_FXP_STATUS, Size: 24, Number: 17673
+< 2026-04-04 10:16:36.951 Status code: 0
+. 2026-04-04 10:16:36.951 Transfer done: 'C:\Users\theya\downloads\testPDFs\calc_questions.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/calc_questions.pdf' [174740]
+. 2026-04-04 10:16:36.951 Copying finished: Transferred: 174,740, Elapsed: 0:00:00, CPS: 1,409,193/s
+. 2026-04-04 10:16:36.951 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/autoUploadTests/" - total size: 32,100
+. 2026-04-04 10:16:36.951   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-04 10:16:36.951   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-04 10:16:36.951   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-04 10:16:36.951 File: 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' [2026-04-04T14:16:28.340Z] [32100]
+. 2026-04-04 10:16:36.951 Copying "C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf" to remote directory started.
+. 2026-04-04 10:16:36.951 Binary transfer mode selected.
+. 2026-04-04 10:16:36.951 Opening remote file.
+> 2026-04-04 10:16:36.951 Type: SSH_FXP_OPEN, Size: 101, Number: 19971
+< 2026-04-04 10:16:36.969 Type: SSH_FXP_HANDLE, Size: 13, Number: 19971
+> 2026-04-04 10:16:36.969 Type: SSH_FXP_WRITE, Size: 32125, Number: 20486
+> 2026-04-04 10:16:36.969 Type: SSH_FXP_CLOSE, Size: 13, Number: 20740
+> 2026-04-04 10:16:36.969 Type: SSH_FXP_SETSTAT, Size: 97, Number: 20233
+< 2026-04-04 10:16:36.989 Type: SSH_FXP_STATUS, Size: 24, Number: 20486
+< 2026-04-04 10:16:36.989 Status code: 0
+< 2026-04-04 10:16:36.989 Type: SSH_FXP_STATUS, Size: 24, Number: 20740
+< 2026-04-04 10:16:36.989 Status code: 0
+. 2026-04-04 10:16:36.989 Preserving timestamp [2026-04-04T14:16:28.000Z]
+< 2026-04-04 10:16:37.002 Type: SSH_FXP_STATUS, Size: 24, Number: 20233
+< 2026-04-04 10:16:37.002 Status code: 0
+. 2026-04-04 10:16:37.002 Transfer done: 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/superSimpleFormulaUpdated.pdf' [32100]
+. 2026-04-04 10:16:37.002 Copying finished: Transferred: 206,840, Elapsed: 0:00:00, CPS: 1,181,942/s
