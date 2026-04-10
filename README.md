@@ -20,8 +20,9 @@ Use these commands to install shiny and R
 ```
 sudo apt install r-base-core
 sudo apt update
-sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
-sudo R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
+sudo apt install -y libcurl4-openssl-dev libssl-dev libxml2-dev build-essential
+sudo apt install -y r-cran-shiny r-cran-bslib r-cran-fs r-cran-sass
+R -e "packageVersion('shiny')"
 ```
 4. **WinSCP:** You must install the Windows version of WinSCP.
 
