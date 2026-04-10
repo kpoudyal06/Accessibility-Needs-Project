@@ -16,7 +16,14 @@ This guide will walk you through setting up the exact environment on your local 
 Before you start, make sure you have the following installed on your machine:
 1. **Windows Subsystem for Linux (WSL):** Specifically, Ubuntu. 
 2. **R and the Shiny Package:** Installed *inside* your WSL environment.
-3. **WinSCP:** You must install the Windows version of WinSCP.
+Use these commands to install shiny and R
+```
+sudo apt install r-base-core
+sudo apt update
+sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
+sudo R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
+```
+4. **WinSCP:** You must install the Windows version of WinSCP.
 
 ---
 
