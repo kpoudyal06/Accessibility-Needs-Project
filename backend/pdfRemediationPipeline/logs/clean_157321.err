@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/bin/marker_single", line 6, in <module>
+    sys.exit(convert_single_cli())
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/marker/scripts/convert_single.py", line 38, in convert_single_cli
+    rendered = converter(fpath)
+               ^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/marker/converters/pdf.py", line 195, in __call__
+    document = self.build_document(temp_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/marker/converters/pdf.py", line 177, in build_document
+    provider_cls = provider_from_filepath(filepath)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/marker/providers/registry.py", line 60, in provider_from_filepath
+    if filetype.image_match(filepath) is not None:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/filetype/match.py", line 53, in image_match
+    return match(obj, image_matchers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/filetype/match.py", line 30, in match
+    buf = get_bytes(obj)
+          ^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/filetype/utils.py", line 64, in get_bytes
+    return get_signature_bytes(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/umbc/class/cmsc447sp26/common/conda/marker_env/lib/python3.12/site-packages/filetype/utils.py", line 24, in get_signature_bytes
+    with open(path, 'rb') as fp:
+         ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'calc_questions.pdf'

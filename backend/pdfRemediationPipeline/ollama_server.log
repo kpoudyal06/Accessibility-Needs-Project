@@ -1,0 +1,2 @@
+Couldn't find '/home/mtchamd1/.ollama/id_ed25519'. Generating new private key.
+Error: could not create directory mkdir /home/mtchamd1/.ollama: no space left on device
