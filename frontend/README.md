@@ -45,6 +45,7 @@ R -e "packageVersion('shiny')"
 5. Change `theya` to **your actual Windows username**:
    `keepuptodate C:\Users\[YOURWINDOWSUSERNAME]\downloads\Accessibility-Needs-Project\frontend\websitePDFs /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation`
 6. Save the file.
+7. Do this process for the `winscp_runcmd.txt` file. The winscp_scnc file syncs uploads from the website to the cluster, the runcmd file runs any command we want it to run
 
 ### Step 3: Configure the Shiny App (`app.R`)
 Because R is running in WSL (Linux) but communicating with your Windows file system, the file paths in the script need to match your specific laptop.

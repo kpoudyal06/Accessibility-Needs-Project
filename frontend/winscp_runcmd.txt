@@ -1,0 +1,13 @@
+# Disable prompts
+option batch abort
+option confirm off
+
+# Connect to the cluster
+open sftp://USR:PWD@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+
+# "call" executes arbitrary shell commands on the remote server
+# currently, it's running a simple "ls" command
+call ls
+
+# Exit to close the connection and return output to R
+exit
