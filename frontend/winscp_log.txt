@@ -565,3 +565,201 @@
 < 2026-04-04 10:16:37.002 Status code: 0
 . 2026-04-04 10:16:37.002 Transfer done: 'C:\Users\theya\downloads\testPDFs\superSimpleFormulaUpdated.pdf' => '/umbc/class/cmsc447sp26/common/autoUploadTests/superSimpleFormulaUpdated.pdf' [32100]
 . 2026-04-04 10:16:37.002 Copying finished: Transferred: 206,840, Elapsed: 0:00:00, CPS: 1,181,942/s
+. 2026-04-12 17:00:52.763 --------------------------------------------------------------------------
+. 2026-04-12 17:00:52.767 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-12 17:00:52.767 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-12 17:00:52.767 Log level: Normal
+. 2026-04-12 17:00:52.767 Local account: GAMINGLAPTOP\theya
+. 2026-04-12 17:00:52.767 Working directory: C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend
+. 2026-04-12 17:00:52.767 Process ID: 12136
+. 2026-04-12 17:00:52.783 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-12 17:00:52.783 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_2712_777 "/log=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_log.txt" "/script=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_sync.txt" 
+. 2026-04-12 17:00:52.783 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-12 17:00:52.783 Login time: Sunday, April 12, 2026 5:00:52 PM
+. 2026-04-12 17:00:52.783 --------------------------------------------------------------------------
+. 2026-04-12 17:00:52.783 Script: Retrospectively logging previous script records:
+> 2026-04-12 17:00:52.783 Script: option batch abort
+< 2026-04-12 17:00:52.783 Script: batch           abort     
+> 2026-04-12 17:00:52.783 Script: option confirm off
+< 2026-04-12 17:00:52.783 Script: confirm         off       
+> 2026-04-12 17:00:52.783 Script: open sftp://elliotg2:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+. 2026-04-12 17:00:52.783 --------------------------------------------------------------------------
+. 2026-04-12 17:00:52.783 Session name: elliotg2@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-12 17:00:52.783 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-12 17:00:52.783 User name: elliotg2 (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-12 17:00:52.783 Tunnel: No
+. 2026-04-12 17:00:52.783 Transfer Protocol: SFTP
+. 2026-04-12 17:00:52.783 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-12 17:00:52.783 Disable Nagle: No
+. 2026-04-12 17:00:52.783 Proxy: None
+. 2026-04-12 17:00:52.783 Send buffer: 262144
+. 2026-04-12 17:00:52.783 Compression: No
+. 2026-04-12 17:00:52.783 Bypass authentication: No
+. 2026-04-12 17:00:52.783 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-12 17:00:52.783 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-12 17:00:52.783 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-12 17:00:52.783 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-12 17:00:52.783 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-12 17:00:52.783 Simple channel: Yes
+. 2026-04-12 17:00:52.783 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-12 17:00:52.783 Shell: default
+. 2026-04-12 17:00:52.783 EOL: LF, UTF: Auto
+. 2026-04-12 17:00:52.783 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-12 17:00:52.783 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-12 17:00:52.783 SFTP Bugs: Auto,Auto
+. 2026-04-12 17:00:52.783 SFTP Server: default
+. 2026-04-12 17:00:52.783 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-12 17:00:52.783 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-12 17:00:52.783 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-12 17:00:52.783 DST mode: Unix
+. 2026-04-12 17:00:52.783 --------------------------------------------------------------------------
+< 2026-04-12 17:00:52.783 Script: Searching for host...
+. 2026-04-12 17:00:52.783 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-12 17:00:52.790 Connecting to 130.85.12.135 port 22
+. 2026-04-12 17:00:52.801 Connected to 130.85.12.135 (from 130.85.46.68:55654)
+< 2026-04-12 17:00:52.801 Script: Connecting to host...
+. 2026-04-12 17:00:52.801 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-12 17:00:52.801 Connected to 130.85.12.135 (from 130.85.46.68:55654)
+. 2026-04-12 17:00:52.821 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-12 17:00:52.821 Using SSH protocol version 2
+. 2026-04-12 17:00:52.821 Have a known host key of type ssh-ed25519
+. 2026-04-12 17:00:52.837 Enabling strict key exchange semantics
+. 2026-04-12 17:00:52.837 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-12 17:00:52.932 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-12 17:00:52.932 Host key fingerprint is:
+. 2026-04-12 17:00:52.932 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-12 17:00:52.932 Script: Authenticating...
+. 2026-04-12 17:00:52.936 Host key matches cached key
+. 2026-04-12 17:00:52.936 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2026-04-12 17:00:52.936 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2026-04-12 17:00:52.936 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2026-04-12 17:00:52.936 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2026-04-12 17:00:52.945 Using username "elliotg2".
+< 2026-04-12 17:00:52.945 Script: Using username "elliotg2".
+. 2026-04-12 17:00:52.970 Server offered these authentication methods: publickey,gssapi-with-mic,keyboard-interactive
+. 2026-04-12 17:00:52.970 Using SSPI from SECUR32.DLL
+. 2026-04-12 17:00:52.970 Trying gssapi-with-mic...
+. 2026-04-12 17:00:52.970 Attempting GSSAPI authentication
+. 2026-04-12 17:00:53.003 GSSAPI authentication initialisation failed
+. 2026-04-12 17:00:53.003 No credentials are available in the security package.
+. 2026-04-12 17:00:53.003 Attempting keyboard-interactive authentication
+. 2026-04-12 17:00:53.019 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, "Password: ")
+. 2026-04-12 17:00:53.019 Using stored password.
+< 2026-04-12 17:00:53.019 Script: Authenticating with pre-entered password.
+. 2026-04-12 17:00:53.885 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, <no prompt>)
+. 2026-04-12 17:00:53.885 Ignoring empty SSH server authentication request
+. 2026-04-12 17:00:53.897 Access granted
+. 2026-04-12 17:00:53.897 Opening main session channel
+. 2026-04-12 17:00:53.992 Opened main channel
+. 2026-04-12 17:00:54.007 Started a shell/command
+< 2026-04-12 17:00:54.007 Script: Authenticated.
+. 2026-04-12 17:00:54.007 --------------------------------------------------------------------------
+. 2026-04-12 17:00:54.007 Using SFTP protocol.
+. 2026-04-12 17:00:54.007 Doing startup conversation with host.
+< 2026-04-12 17:00:54.007 Script: Starting the session...
+. 2026-04-12 17:00:54.007 Well known server, allowing SFTP version 6.
+> 2026-04-12 17:00:54.007 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2026-04-12 17:00:56.358 Type: SSH_FXP_VERSION, Size: 238, Number: -1
+. 2026-04-12 17:00:56.358 SFTP version 3 negotiated.
+. 2026-04-12 17:00:56.358 Supports extension posix-rename@openssh.com="1"
+. 2026-04-12 17:00:56.358 Supports statvfs@openssh.com extension version 2
+. 2026-04-12 17:00:56.358 Unknown server extension fstatvfs@openssh.com="2"
+. 2026-04-12 17:00:56.358 Supports hardlink@openssh.com extension version 1
+. 2026-04-12 17:00:56.358 Unknown server extension fsync@openssh.com="1"
+. 2026-04-12 17:00:56.358 Unknown server extension lsetstat@openssh.com="1"
+. 2026-04-12 17:00:56.358 Supports limits@openssh.com extension version 1
+. 2026-04-12 17:00:56.358 Unknown server extension expand-path@openssh.com="1"
+. 2026-04-12 17:00:56.358 We believe the server has signed timestamps bug
+. 2026-04-12 17:00:56.358 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+> 2026-04-12 17:00:56.358 Type: SSH_FXP_EXTENDED, Size: 27, Number: 200
+< 2026-04-12 17:00:56.369 Type: SSH_FXP_EXTENDED_REPLY, Size: 37, Number: 200
+. 2026-04-12 17:00:56.369 Limiting packet size to server's limit of 262144 + 4 bytes
+. 2026-04-12 17:00:56.369 Getting current directory name.
+. 2026-04-12 17:00:56.369 Getting real path for '.'
+> 2026-04-12 17:00:56.369 Type: SSH_FXP_REALPATH, Size: 10, Number: 272
+< 2026-04-12 17:00:56.379 Type: SSH_FXP_NAME, Size: 49, Number: 272
+. 2026-04-12 17:00:56.379 Real path is '/home/elliotg2'
+. 2026-04-12 17:00:56.379 Startup conversation with host finished.
+< 2026-04-12 17:00:56.379 Script: Session started.
+< 2026-04-12 17:00:56.379 Script: Active session: [1] elliotg2@chip.rs.umbc.edu
+> 2026-04-12 17:00:56.381 Script: keepuptodate C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation
+< 2026-04-12 17:00:56.381 Script: Watching for changes, press Ctrl-C to abort...
+< 2026-04-12 17:00:56.381 Script: Scanning 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
+. 2026-04-12 17:00:56.382 Keep up to date: Scanning 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
+< 2026-04-12 17:00:56.382 Script: Watching for changes in 1 directories...
+. 2026-04-12 17:00:56.382 Keep up to date: Watching for changes in 1 directories...
+< 2026-04-12 17:01:06.105 Script: Change in 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' detected.
+. 2026-04-12 17:01:06.105 Keep up to date: Change in 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' detected.
+. 2026-04-12 17:01:06.105 Collecting synchronization list for local directory 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\' and remote directory '/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-12 17:01:06.105 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\.' [2026-04-12T21:01:05.590Z] [0] excluded from synchronization
+. 2026-04-12 17:01:06.105 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\..' [2026-04-12T20:58:01.300Z] [0] excluded from synchronization
+. 2026-04-12 17:01:06.105 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf' [2026-04-12T21:01:05.593Z] [174740] included to synchronization
+. 2026-04-12 17:01:06.105 Listing directory "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation".
+> 2026-04-12 17:01:06.105 Type: SSH_FXP_OPENDIR, Size: 94, Number: 523
+< 2026-04-12 17:01:06.112 Type: SSH_FXP_HANDLE, Size: 13, Number: 523
+> 2026-04-12 17:01:06.112 Type: SSH_FXP_READDIR, Size: 13, Number: 780
+< 2026-04-12 17:01:06.131 Type: SSH_FXP_NAME, Size: 213, Number: 780
+> 2026-04-12 17:01:06.131 Type: SSH_FXP_READDIR, Size: 13, Number: 1036
+< 2026-04-12 17:01:06.142 Type: SSH_FXP_STATUS, Size: 28, Number: 1036
+< 2026-04-12 17:01:06.142 Status code: 1
+> 2026-04-12 17:01:06.142 Type: SSH_FXP_CLOSE, Size: 13, Number: 1284
+. 2026-04-12 17:01:06.142 .;d;0;2026-04-12T20:56:56.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-12 17:01:06.142 ..;d;0;2026-04-12T20:59:48.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-12 17:01:06.142 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf' [2026-04-12T21:01:05.593Z] [174740] is new
+. 2026-04-12 17:01:06.142 Synchronizing local directory 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\' with remote directory '/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/', params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs)
+. 2026-04-12 17:01:06.142 Copying 1 files/directories to remote directory "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/" - total size: 174,740
+. 2026-04-12 17:01:06.142   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0001; Resume: S (102400); CalcS: No; Mask: *.*
+. 2026-04-12 17:01:06.142   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; EncryptNewFiles: Yes; ExcludeHiddenFiles: No; ExcludeEmptyDirectories: No; InclM: ; ResumeL: 0
+. 2026-04-12 17:01:06.142   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2026-04-12 17:01:06.142 File: 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf' [2026-04-12T21:01:05.593Z] [174740]
+< 2026-04-12 17:01:06.142 Script: Local 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' => Remote '/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation'
+. 2026-04-12 17:01:06.142 Copying "C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf" to remote directory started.
+. 2026-04-12 17:01:06.142 Binary transfer mode selected.
+. 2026-04-12 17:01:06.142 Checking existence of file.
+> 2026-04-12 17:01:06.142 Type: SSH_FXP_LSTAT, Size: 113, Number: 1543
+< 2026-04-12 17:01:06.156 Type: SSH_FXP_STATUS, Size: 24, Number: 1284
+. 2026-04-12 17:01:06.156 Discarding reserved response
+< 2026-04-12 17:01:06.156 Type: SSH_FXP_STATUS, Size: 29, Number: 1543
+< 2026-04-12 17:01:06.156 Status code: 2
+. 2026-04-12 17:01:06.156 Checking existence of partially transferred file.
+> 2026-04-12 17:01:06.156 Type: SSH_FXP_LSTAT, Size: 122, Number: 1799
+< 2026-04-12 17:01:06.164 Type: SSH_FXP_STATUS, Size: 29, Number: 1799
+< 2026-04-12 17:01:06.164 Status code: 2
+. 2026-04-12 17:01:06.164 Opening remote file.
+> 2026-04-12 17:01:06.164 Type: SSH_FXP_OPEN, Size: 138, Number: 2051
+< 2026-04-12 17:01:06.178 Type: SSH_FXP_HANDLE, Size: 13, Number: 2051
+> 2026-04-12 17:01:06.178 Type: SSH_FXP_WRITE, Size: 32761, Number: 2566
+. 2026-04-12 17:01:06.181 Skipped 5 SSH_FXP_WRITE packets
+> 2026-04-12 17:01:06.181 Type: SSH_FXP_CLOSE, Size: 13, Number: 4100
+< 2026-04-12 17:01:06.205 Type: SSH_FXP_STATUS, Size: 24, Number: 2566
+< 2026-04-12 17:01:06.205 Status code: 0
+. 2026-04-12 17:01:06.231 Skipped 5 SSH_FXP_STATUS packets
+< 2026-04-12 17:01:06.231 Type: SSH_FXP_STATUS, Size: 24, Number: 4100
+< 2026-04-12 17:01:06.231 Status code: 0
+> 2026-04-12 17:01:06.231 Type: SSH_FXP_RENAME, Size: 230, Number: 4370
+< 2026-04-12 17:01:06.243 Type: SSH_FXP_STATUS, Size: 24, Number: 4370
+< 2026-04-12 17:01:06.243 Status code: 0
+. 2026-04-12 17:01:06.243 Preserving timestamp [2026-04-12T21:01:05.000Z]
+> 2026-04-12 17:01:06.243 Type: SSH_FXP_SETSTAT, Size: 125, Number: 2313
+< 2026-04-12 17:01:06.250 Type: SSH_FXP_STATUS, Size: 24, Number: 2313
+< 2026-04-12 17:01:06.250 Status code: 0
+. 2026-04-12 17:01:06.250 Transfer done: 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf' => '/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/calc_questions.pdf' [174740]
+. 2026-04-12 17:01:06.250 Copying finished: Transferred: 174,740, Elapsed: 0:00:00, CPS: 1,617,962/s
+< 2026-04-12 17:01:06.756 Script: Change in 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' detected.
+. 2026-04-12 17:01:06.756 Keep up to date: Change in 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' detected.
+. 2026-04-12 17:01:06.756 Collecting synchronization list for local directory 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\' and remote directory '/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/', mode = Remote, params = 0xBA (NoConfirmation, NoRecurse, UseCache, DelayProgress, SubDirs), file mask = ''
+. 2026-04-12 17:01:06.756 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\.' [2026-04-12T21:01:05.590Z] [0] excluded from synchronization
+. 2026-04-12 17:01:06.756 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\..' [2026-04-12T20:58:01.300Z] [0] excluded from synchronization
+. 2026-04-12 17:01:06.756 Local file 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs\calc_questions.pdf' [2026-04-12T21:01:05.593Z] [174740] included to synchronization
+. 2026-04-12 17:01:06.756 Listing directory "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation".
+> 2026-04-12 17:01:06.756 Type: SSH_FXP_OPENDIR, Size: 94, Number: 4619
+< 2026-04-12 17:01:06.767 Type: SSH_FXP_HANDLE, Size: 13, Number: 4619
+> 2026-04-12 17:01:06.767 Type: SSH_FXP_READDIR, Size: 13, Number: 4876
+< 2026-04-12 17:01:06.778 Type: SSH_FXP_NAME, Size: 348, Number: 4876
+> 2026-04-12 17:01:06.778 Type: SSH_FXP_READDIR, Size: 13, Number: 5132
+< 2026-04-12 17:01:06.792 Type: SSH_FXP_STATUS, Size: 28, Number: 5132
+< 2026-04-12 17:01:06.792 Status code: 1
+> 2026-04-12 17:01:06.792 Type: SSH_FXP_CLOSE, Size: 13, Number: 5380
+. 2026-04-12 17:01:06.792 .;d;0;2026-04-12T21:01:06.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-12 17:01:06.792 ..;d;0;2026-04-12T20:59:48.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
+. 2026-04-12 17:01:06.792 calc_questions.pdf;-;174740;2026-04-12T21:01:05.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rw-rw----;0
