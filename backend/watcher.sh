@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- VARIABLES TO FILL IN ---
-WATCH_DIR="/umbc/class/cmsc447sp26/common/autoUploadTests"
+WATCH_DIR="/umbc/class/cmsc447sp26/common/fileUploadLocation"
 LOG_FILE="/umbc/class/cmsc447sp26/common/watcher.log"
 
 echo "Starting watcher on $WATCH_DIR at $(date)" >> "$LOG_FILE"
