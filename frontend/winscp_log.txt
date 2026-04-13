@@ -1009,4 +1009,75 @@
 < 2026-04-12 17:18:00.914 Script: Scanning 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
 . 2026-04-12 17:18:00.914 Keep up to date: Scanning 'C:\Users\theya\downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
 < 2026-04-12 17:18:00.916 Script: Watching for changes in 1 directories...
-. 2026-04-12 17:18:00.916 Keep up to date: Watching for changes in 1 directories...
+. 2026-04-12 17:18:00.916 Keep up to date: Watching for changes in 1 directories.... 2026-04-13 12:36:57.136 --------------------------------------------------------------------------
+. 2026-04-13 12:36:57.136 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-13 12:36:57.136 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-13 12:36:57.136 Log level: Normal
+. 2026-04-13 12:36:57.136 Local account: ELLIOTS_LAPTOP\theya
+. 2026-04-13 12:36:57.136 Working directory: C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend
+. 2026-04-13 12:36:57.136 Process ID: 17412
+. 2026-04-13 12:36:57.152 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-13 12:36:57.152 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_23944_733 "/log=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_log.txt" "/script=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_sync.txt" 
+. 2026-04-13 12:36:57.152 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-13 12:36:57.152 Login time: Monday, April 13, 2026 12:36:57 PM
+. 2026-04-13 12:36:57.152 --------------------------------------------------------------------------
+. 2026-04-13 12:36:57.152 Script: Retrospectively logging previous script records:
+> 2026-04-13 12:36:57.152 Script: option batch abort
+< 2026-04-13 12:36:57.152 Script: batch           abort     
+> 2026-04-13 12:36:57.152 Script: option confirm off
+< 2026-04-13 12:36:57.152 Script: confirm         off       
+> 2026-04-13 12:36:57.152 Script: open sftp://USR:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+. 2026-04-13 12:36:57.152 --------------------------------------------------------------------------
+. 2026-04-13 12:36:57.152 Session name: USR@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-13 12:36:57.152 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-13 12:36:57.152 User name: USR (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-13 12:36:57.152 Tunnel: No
+. 2026-04-13 12:36:57.152 Transfer Protocol: SFTP
+. 2026-04-13 12:36:57.152 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-13 12:36:57.152 Disable Nagle: No
+. 2026-04-13 12:36:57.152 Proxy: None
+. 2026-04-13 12:36:57.152 Send buffer: 262144
+. 2026-04-13 12:36:57.152 Compression: No
+. 2026-04-13 12:36:57.152 Bypass authentication: No
+. 2026-04-13 12:36:57.152 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-13 12:36:57.152 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-13 12:36:57.152 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-13 12:36:57.152 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-13 12:36:57.152 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-13 12:36:57.152 Simple channel: Yes
+. 2026-04-13 12:36:57.159 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-13 12:36:57.159 Shell: default
+. 2026-04-13 12:36:57.159 EOL: LF, UTF: Auto
+. 2026-04-13 12:36:57.159 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-13 12:36:57.159 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-13 12:36:57.159 SFTP Bugs: Auto,Auto
+. 2026-04-13 12:36:57.159 SFTP Server: default
+. 2026-04-13 12:36:57.159 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-13 12:36:57.159 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-13 12:36:57.159 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-13 12:36:57.159 DST mode: Unix
+. 2026-04-13 12:36:57.159 --------------------------------------------------------------------------
+< 2026-04-13 12:36:57.159 Script: Searching for host...
+. 2026-04-13 12:36:57.159 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-13 12:36:57.168 Connecting to 130.85.12.135 port 22
+. 2026-04-13 12:36:57.168 Connected to 130.85.12.135 (from 130.85.47.194:50578)
+< 2026-04-13 12:36:57.168 Script: Connecting to host...
+. 2026-04-13 12:36:57.168 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-13 12:36:57.168 Connected to 130.85.12.135 (from 130.85.47.194:50578)
+. 2026-04-13 12:36:57.184 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-13 12:36:57.184 Using SSH protocol version 2
+. 2026-04-13 12:36:57.184 Have a known host key of type ssh-ed25519
+. 2026-04-13 12:36:57.184 Enabling strict key exchange semantics
+. 2026-04-13 12:36:57.184 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-13 12:36:57.263 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-13 12:36:57.263 Host key fingerprint is:
+. 2026-04-13 12:36:57.263 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-13 12:36:57.263 Script: Authenticating...
+. 2026-04-13 12:36:57.263 Host key does not match configured key fingerprint ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5
+. 2026-04-13 12:36:57.263 Attempt to close connection due to fatal exception:
+* 2026-04-13 12:36:57.263 Host key fingerprint is ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk.
+* 2026-04-13 12:36:57.263 (Exception) **Host key does not match configured key fingerprint "ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"!**
+. 2026-04-13 12:36:57.263 Closing connection.
+< 2026-04-13 12:36:57.278 Script: Host key does not match configured key fingerprint "ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"!
+< 2026-04-13 12:36:57.278 Host key fingerprint is ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk.
+< 2026-04-13 12:36:57.278 Authentication failed.
