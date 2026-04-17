@@ -1,2 +1,3 @@
 backend/conda/
 frontend/.Renviron
+frontend/winscp_sync_generated.txt
