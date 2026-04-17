@@ -1,13 +1,13 @@
 # Automated Web-to-Cluster File Pipeline (Backend Prototype)
 
-This project uses a Shiny web app running in WSL to accept PDF uploads. Since our UMBC cluster is protected by DUO, we use WinSCP and the Global Protect VPN (connect to gpvpn.umbc.edu) running in the background to automatically bridge the gap and sync the files directly to the cluster without constant 2FA prompts.
+This project uses a Shiny web app running in WSL to accept PDF uploads. Since our UMBC cluster is protected by DUO, we use WinSCP and the Global Protect VPN (connect to `gpvpn.umbc.edu`) running in the background to automatically bridge the gap and sync the files directly to the cluster without constant 2FA prompts.
 
-WinSCP Download: https://winscp.net/eng/download.php
-Global Protect VPN: https://umbc.atlassian.net/wiki/x/rEXVAQ
-WSL Download: https://learn.microsoft.com/en-us/windows/wsl/install
-R and Shiny: Use sudo commands (Use an LLM to help you out here, they are well known packages)
+**Important Links:**
+* **WinSCP Download:** [https://winscp.net/eng/download.php](https://winscp.net/eng/download.php)
+* **Global Protect VPN:** [https://umbc.atlassian.net/wiki/x/rEXVAQ](https://umbc.atlassian.net/wiki/x/rEXVAQ)
+* **WSL Download:** [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-This guide will walk you through setting up the exact environment on your local Windows machine so you can test the backend and start building out the frontend UI.
+This guide will walk you through setting up the environment on your local Windows machine so you can test the backend and interact with the UI.
 
 ---
 
@@ -15,69 +15,59 @@ This guide will walk you through setting up the exact environment on your local 
 
 Before you start, make sure you have the following installed on your machine:
 1. **Windows Subsystem for Linux (WSL):** Specifically, Ubuntu. 
-2. **R and the Shiny Package:** Installed *inside* your WSL environment.
-Use these commands to install shiny and R
-```
+2. **WinSCP:** You must install the Windows version of WinSCP.
+3. **R and the Shiny Package:** Installed *inside* your WSL environment. Run the following commands in your WSL terminal:
+
+```bash
 sudo apt install r-base-core
 sudo apt update
 sudo apt install -y libcurl4-openssl-dev libssl-dev libxml2-dev build-essential
 sudo apt install -y r-cran-shiny r-cran-bslib r-cran-fs r-cran-sass
 R -e "packageVersion('shiny')"
 ```
-4. **WinSCP:** You must install the Windows version of WinSCP.
 
 ---
 
 ## Setup Guide
 
-### Step 1:
-1. Open your terminal and go to the downloads folder
-2. Run: "git clone git@github.com:kpoudyal06/Accessibility-Needs-Project.git "
-3. You might have to set up an ssh key to do this by the way
-4. DON'T run these commands on the cluster, remember that we're all working in a shared directory, so the updated repo is already in here. If you want, you can run a quick: "git pull" to keep things updated
+### Clone the Repository
+1. Open your WSL terminal and navigate to your Windows downloads folder: `cd /mnt/c/Users/YOUR_WINDOWS_USERNAME/Downloads/`
+2. Clone the repository: `git clone git@github.com:kpoudyal06/Accessibility-Needs-Project.git` *(Note: You may need to set up an SSH key with GitHub to do this).*
+3. **Cluster Note:** DO NOT run `git clone` directly on the UMBC cluster. We are working in a shared directory (`/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/`), so just run `git pull` if you need to update the cluster's version of the repo.
 
-### Step 2: 
-1. Open `winscp_sync.txt` in the frontend folder.
-2. Find the line that starts with `open sftp://...`
-3. **IMPORTANT:** You need to update the login credentials to use your HPC account so you can test the cluster connection. Replace the `open` line with your login info. 
-   * *Format: `open sftp://YOURUMBCUSERNAME:YOURPASSWORD@chip.rs.umbc.edu/ -hostkey="..."`*
-4. Find the line that starts with `keepuptodate`.
-5. Change `theya` to **your actual Windows username**:
-   `keepuptodate C:\Users\[YOURWINDOWSUSERNAME]\downloads\Accessibility-Needs-Project\frontend\websitePDFs /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation`
-6. Save the file.
-7. Do this process for the `winscp_runcmd.txt` file. The winscp_scnc file syncs uploads from the website to the cluster, the runcmd file runs any command we want it to run
+### Set Up Environment Variables (Update Your Credentials)
+The app dynamically generates WinSCP scripts so you no longer need to hardcode passwords into text files. Instead, you need a local `.Renviron` file.
 
-### Step 3: Configure the Shiny App (`app.R`)
-Because R is running in WSL (Linux) but communicating with your Windows file system, the file paths in the script need to match your specific laptop.
+1. Navigate to the `frontend` folder inside the cloned repo.
+2. Create a new file named exactly **`.Renviron`**.
+3. Add the following lines, replacing the placeholder text with your actual information:
 
-1. Open `app.R` in your code editor.
-2. Find the `# --- WINSCP AUTOMATION ---` section.
-3. Update the `winscp_script_win` path to use **your Windows username**:
-   ```R
-   winscp_script_win <- "C:\\Users\\YOUR_WINDOWS_USERNAME\\Downloads\\Accessibility-Needs-Project\frontend\\winscp_sync.txt"
-   ```
-4. Find the `server` block near the bottom of the script.
-5. Update the `destination` variable to use **your Windows username**:
-   ```R
-   destination <- "/mnt/c/Users/YOUR_WINDOWS_USERNAME/Downloads/Accessibility-Needs-Project/frontend/websitePDFs/"
-   ```
-6. Save the file.
-
----
+```text
+WIN_USER="your_windows_username"
+CLUSTER_USER="your_umbc_hpc_username"
+CLUSTER_PWD="your_umbc_hpc_password"
+```
+4. Save the file. The `app.R` script will automatically pull these variables to set up your local paths and establish the cluster connection.
 
 ## How to Run
 
-1. Open your WSL (Ubuntu) terminal.
-2. Navigate to the folder where you cloned this repository.
-3. Launch the Shiny app by running:
+1. **Connect to the VPN:** Ensure you are connected to the UMBC Global Protect VPN (`gpvpn.umbc.edu`).
+2. **Launch the App:** Open your WSL terminal, navigate to the `frontend` folder, and run:
    ```bash
    R -e "shiny::runApp('app.R', port=1234, host='0.0.0.0')"
    ```
-4. You should see a message saying `Background WinSCP sync initiated` followed by `Listening on http://0.0.0.0:1234`.
-5. Open your web browser (in Windows) and go to **http://localhost:1234**.
-6. Run the watcher script at /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/, by running: ./watcher.sh
-7. Open up another terminal connected to the cluster to run cat watcher.log to make sure that it recognizes the uploaded files
-8. Upload a PDF using the browse button. If everything is set up correctly, the file will be saved to your local `testPDFs` folder, and WinSCP will instantly push it to the UMBC cluster!
+3. You should see a message saying `Background WinSCP sync initiated using dynamic script.` followed by `Listening on http://0.0.0.0:1234`.
+4. Open your Windows web browser and navigate to **http://localhost:1234**.
 
-*(Note: If the background WinSCP connection fails, it will generate a `winscp_log.txt` file in your Downloads folder. Check there for troubleshooting!)*
+### Testing the Pipeline
 
+1. **Start the Watcher:** Open a separate terminal connected via SSH to the UMBC cluster. Navigate to `/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/` and run the watcher script: 
+   ```bash
+   ./watcher.sh
+   ```
+2. **Monitor the Logs:** Open another SSH terminal and run `tail -f watcher.log` to watch for incoming files in real-time.
+3. **Upload a File:** Use the web app interface to enter a UMBC email, Student ID, and upload a PDF. 
+   * *Note: The app is currently configured to accept files up to 30MB.*
+4. If everything is set up correctly, the file will be saved to your local `websitePDFs` folder, WinSCP will instantly push it to the UMBC cluster, and your watcher script will detect it!
+
+*(Troubleshooting: If the background WinSCP connection fails, it will generate a `winscp_log.txt` file in your frontend folder. Check there for connection errors.)*
