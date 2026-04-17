@@ -1,0 +1,3 @@
+WIN_USER="your_windows_username_here"
+CLUSTER_USER="your_cluster_username_here"
+CLUSTER_PWD="your_cluster_password_here"

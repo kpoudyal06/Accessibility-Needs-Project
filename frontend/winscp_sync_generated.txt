@@ -1,0 +1,5 @@
+option batch abort
+option confirm off
+open sftp://elliotg2:Wear4gaming!@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+keepuptodate "C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\websitePDFs" /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation
+exit
