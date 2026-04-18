@@ -75,19 +75,22 @@ ui <- page_navbar(
               )
             )
   ),
-  
-  # 4. Cluster Command Page (Merged from app(1).R)
-  nav_panel(title = "Cluster Command", 
-            value = "cmd_tab",
+  nav_panel(title = "Job Actions", 
+            value = "job_actions_tab",
             page_fluid(
               card(
                 div(
                   class = "d-flex flex-column align-items-center",
                   style = "gap: 20px; padding-top: 40px; padding-bottom: 40px;",
-                  h3("Cluster Command Execution"),
-                  p("Administrative tools for cluster testing and synchronization.", class = "text-muted"),
-                  actionButton("run_cmd", "Run Remote 'ls' Command", class = "btn-warning w-25"),
-                  verbatimTextOutput("cmd_output") # Displays the terminal output
+                  h3("Manage Cluster Jobs"),
+                  p("Check progress or download completed files for a specific Job ID.", class = "text-muted"),
+                  
+                  textInput("action_job_id", "Enter Job ID:", placeholder = "JOB_YYYYMMDD_HHMMSS_XXXX"),
+                  
+                  actionButton("check_progress_btn", "Check Progress", class = "btn-info w-25"),
+                  verbatimTextOutput("real_progress_output"),
+                  
+                  downloadButton("retrieve_files_btn", "Download Output (.zip)", class = "btn-success w-25")
                 )
               )
             )
