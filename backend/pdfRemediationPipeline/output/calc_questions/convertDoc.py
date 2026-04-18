@@ -18,8 +18,8 @@ def extract_text_from_block(block):
     if 'text' in block and block.get('text'):
         text_content += block['text'] + " "
         
-    # Dig into children (lines, spans, etc.)
-    if 'children' in block:
+    # FIX: Ensure 'children' exists AND is not None before looping
+    if 'children' in block and block['children']:
         for child in block['children']:
             text_content += extract_text_from_block(child) + " "
             
@@ -44,7 +44,7 @@ html_lines = [
     "<head>",
     "<meta charset='UTF-8'>",
     "<title>Accessible Document</title>",
-    "<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>", # Added MathJax for equations!
+    "<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>",
     "<style>",
     f"  .page {{ position: relative; width: {page_width}px; height: {page_height}px; border: 1px solid #ccc; margin: 20px auto; background: white; }}",
     "  .block { position: absolute; margin: 0; font-family: sans-serif; font-size: 12px; }",
@@ -67,13 +67,12 @@ for block in sorted_blocks:
     # Use our smart extractor!
     raw_content = extract_text_from_block(block)
     
-    # Fallback to block type if it's completely empty (like an image block)
+    # Fallback to block type if it's completely empty
     if not raw_content:
         raw_content = f"[{block['block_type']}]"
     
     # --- HTML GENERATION ---
     tag = "h2" if block['block_type'] == "SectionHeader" else "p"
-    # We inject the raw content directly into HTML (preserving Marker's math/formatting)
     html_lines.append(f"    <{tag} class='block' style='left: {x1}px; top: {y1}px; width: {x2-x1}px;'>{raw_content}</{tag}>")
     
     # --- PDF GENERATION ---
@@ -84,11 +83,8 @@ for block in sorted_blocks:
     else:
         c.setFont("Helvetica", 10)
         
-    # We strip HTML out of the PDF version so you don't literally see <p> or <span> tags
     clean_pdf_text = strip_html_tags(raw_content)
     
-    # If a block is long, reportlab's drawString won't wrap it. 
-    # For a simple text layer, this is okay, but we truncate it slightly so it doesn't run off the page.
     c.drawString(x1, pdf_y, clean_pdf_text[:100] + ("..." if len(clean_pdf_text) > 100 else ""))
 
 # --- FINALIZE HTML ---
