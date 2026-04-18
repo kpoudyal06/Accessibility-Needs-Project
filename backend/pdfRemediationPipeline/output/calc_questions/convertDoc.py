@@ -4,34 +4,50 @@ from reportlab.pdfgen import canvas
 
 def strip_html_tags(text):
     """Removes HTML tags so the PDF gets clean text instead of code."""
+    if not text:
+        return ""
     clean = re.compile('<.*?>')
-    return re.sub(clean, '', text)
+    # Unescape common HTML entities that Marker might leave behind
+    text = text.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+    return re.sub(clean, '', text).strip()
 
-def extract_text_from_block(block):
-    """Recursively searches a Marker block for text or HTML content."""
-    if 'html' in block and block.get('html'):
-        return block['html']
+def extract_content(block):
+    """
+    Recursively extracts text or HTML. 
+    We prioritize HTML because Marker stores MathML inside <math> tags.
+    """
+    content = ""
+    
+    # Grab HTML if available (preserves <math> tags for MathJax)
+    if block.get('html'):
+        content += block['html'] + " "
+    elif block.get('text'):
+        content += block['text'] + " "
         
-    text_content = ""
-    if 'text' in block and block.get('text'):
-        text_content += block['text'] + " "
-        
-    if 'children' in block and block['children']:
+    if block.get('children'):
         for child in block['children']:
-            text_content += extract_text_from_block(child) + " "
+            content += extract_content(child) + " "
             
-    return text_content.strip()
+    return content.strip()
 
 # 1. Load your Marker JSON
+# Make sure this points to the correct main JSON file (not the meta file)
 with open('calc_questions.json', 'r') as f:
     data = json.load(f)
 
 page_width, page_height = 612, 792
 
-# 2. Sort the blocks for screen reader order
+# 2. Extract and sort blocks
+# (Updated to ensure we iterate over the page wrapper correctly)
+all_blocks = []
+pages = data.get('children', [])
+for page in pages:
+    if page.get('children'):
+         all_blocks.extend(page['children'])
+
 sorted_blocks = sorted(
-    data['children'][0]['children'], 
-    key=lambda b: (b['bbox'][1], b['bbox'][0])
+    all_blocks, 
+    key=lambda b: (b.get('bbox', [0,0])[1], b.get('bbox', [0,0])[0])
 )
 
 # --- SETUP HTML ---
@@ -41,13 +57,10 @@ html_lines = [
     "<head>",
     "<meta charset='UTF-8'>",
     "<title>Accessible Document</title>",
-    # Configure MathJax to recognize standard LaTeX delimiters including single $ for inline math
     "<script>",
     "  MathJax = {",
-    "    tex: {",
-    "      inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],",
-    "      displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]",
-    "    }",
+    "    tex: { inlineMath: [['$', '$'], ['\\\\(', '\\\\)']], displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']] },",
+    "    mml: { forceDraw: true }", # Ensures MathML tags from Marker are drawn
     "  };",
     "</script>",
     "<script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>",
@@ -69,31 +82,29 @@ c = canvas.Canvas(pdf_path, pagesize=(page_width, page_height))
 
 # 3. Loop through every sorted block
 for block in sorted_blocks:
-    bbox = block['bbox'] 
+    bbox = block.get('bbox', [0, 0, 100, 100]) 
     x1, y1, x2, y2 = bbox
-    block_type = block.get('block_type', '')
+    block_type = block.get('block_type', 'Text')
     
-    raw_content = extract_text_from_block(block)
+    raw_content = extract_content(block)
+    clean_pdf_text = strip_html_tags(raw_content)
     
-    if not raw_content:
-        raw_content = f"[{block_type}]"
+    # FIX: If the block is completely empty after cleaning, skip it!
+    # This stops "[SectionHeader]" from printing.
+    if not clean_pdf_text:
+        continue
         
-    # FORCE EQUATION RENDERING: 
-    # If Marker didn't wrap the LaTeX, we wrap it in $$ so MathJax catches it.
-    if block_type == "Equation" and not raw_content.startswith(("$", "\\")):
-        raw_content = f"$${raw_content}$$"
-    
-    # --- HTML GENERATION (Expanded block mapping) ---
+    # --- HTML GENERATION ---
     if block_type == "Title":
         tag = "h1"
     elif block_type == "SectionHeader":
         tag = "h2"
     elif block_type in ["PageHeader", "PageFooter"]:
-        tag = "div" # Use a standard div but class it for styling
+        tag = "div"
         html_lines.append(f"    <{tag} class='block header' style='left: {x1}px; top: {y1}px; width: {x2-x1}px;'>{raw_content}</{tag}>")
-        continue # Skip the default append below
+        continue 
     else:
-        tag = "p"
+        tag = "div" # Changed from <p> so we don't accidentally nest HTML paragraphs
         
     html_lines.append(f"    <{tag} class='block' style='left: {x1}px; top: {y1}px; width: {x2-x1}px;'>{raw_content}</{tag}>")
     
@@ -107,8 +118,9 @@ for block in sorted_blocks:
     else:
         c.setFont("Helvetica", 10)
         
-    clean_pdf_text = strip_html_tags(raw_content)
-    c.drawString(x1, pdf_y, clean_pdf_text[:100] + ("..." if len(clean_pdf_text) > 100 else ""))
+    # Remember: This PDF will ONLY show the raw LaTeX code. 
+    # For a PDF with beautifully rendered equations, open the HTML file and print to PDF.
+    c.drawString(x1, pdf_y, clean_pdf_text[:120] + ("..." if len(clean_pdf_text) > 120 else ""))
 
 # --- FINALIZE HTML ---
 html_lines.append("  </div>")
@@ -122,3 +134,4 @@ with open("reconstructed_layout.html", "w", encoding="utf-8") as f:
 c.save()
 
 print("Successfully generated 'reconstructed_layout.html' and 'reconstructed_layout.pdf'.")
+print("Note: The generated PDF contains raw equation code. Open the HTML file in your browser to see rendered math!")
