@@ -1,15 +1,37 @@
 import json
+import re
 from reportlab.pdfgen import canvas
+
+def strip_html_tags(text):
+    """Removes HTML tags so the PDF gets clean text instead of code."""
+    clean = re.compile('<.*?>')
+    return re.sub(clean, '', text)
+
+def extract_text_from_block(block):
+    """Recursively searches a Marker block for text or HTML content."""
+    # Marker often stores rich text and equations in an 'html' key
+    if 'html' in block and block.get('html'):
+        return block['html']
+        
+    text_content = ""
+    # Check for direct text keys
+    if 'text' in block and block.get('text'):
+        text_content += block['text'] + " "
+        
+    # Dig into children (lines, spans, etc.)
+    if 'children' in block:
+        for child in block['children']:
+            text_content += extract_text_from_block(child) + " "
+            
+    return text_content.strip()
 
 # 1. Load your Marker JSON
 with open('calc_questions.json', 'r') as f:
     data = json.load(f)
 
-# Page 0 is 612x792
 page_width, page_height = 612, 792
 
 # 2. Sort the blocks for screen reader order (Top to Bottom, then Left to Right)
-# This is the crucial step for accessibility!
 sorted_blocks = sorted(
     data['children'][0]['children'], 
     key=lambda b: (b['bbox'][1], b['bbox'][0])
@@ -22,6 +44,7 @@ html_lines = [
     "<head>",
     "<meta charset='UTF-8'>",
     "<title>Accessible Document</title>",
+    "<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>", # Added MathJax for equations!
     "<style>",
     f"  .page {{ position: relative; width: {page_width}px; height: {page_height}px; border: 1px solid #ccc; margin: 20px auto; background: white; }}",
     "  .block { position: absolute; margin: 0; font-family: sans-serif; font-size: 12px; }",
@@ -38,23 +61,22 @@ c = canvas.Canvas(pdf_path, pagesize=(page_width, page_height))
 
 # 3. Loop through every sorted block and build both formats
 for block in sorted_blocks:
-    bbox = block['bbox'] # e.g., [24.75, 39.0, 293.25, 69.0]
+    bbox = block['bbox'] 
     x1, y1, x2, y2 = bbox
     
-    # Extract actual text if it exists in your JSON, otherwise use the block type as a placeholder
-    content = block.get('text', f"[{block['block_type']}]") 
+    # Use our smart extractor!
+    raw_content = extract_text_from_block(block)
+    
+    # Fallback to block type if it's completely empty (like an image block)
+    if not raw_content:
+        raw_content = f"[{block['block_type']}]"
     
     # --- HTML GENERATION ---
-    # Semantic tagging based on the type of block
     tag = "h2" if block['block_type'] == "SectionHeader" else "p"
-    
-    # Use standard top and left CSS for exact positioning
-    html_lines.append(f"    <{tag} class='block' style='left: {x1}px; top: {y1}px; width: {x2-x1}px;'>{content}</{tag}>")
+    # We inject the raw content directly into HTML (preserving Marker's math/formatting)
+    html_lines.append(f"    <{tag} class='block' style='left: {x1}px; top: {y1}px; width: {x2-x1}px;'>{raw_content}</{tag}>")
     
     # --- PDF GENERATION ---
-    # PDF coordinates (0,0) start at the BOTTOM-LEFT. 
-    # Your JSON (0,0) is TOP-LEFT. We must invert the Y-axis.
-    # We subtract ~10 extra pixels so the text draws inside the box constraints, not floating above it.
     pdf_y = page_height - y1 - 10 
     
     if block['block_type'] == "SectionHeader":
@@ -62,7 +84,12 @@ for block in sorted_blocks:
     else:
         c.setFont("Helvetica", 10)
         
-    c.drawString(x1, pdf_y, content)
+    # We strip HTML out of the PDF version so you don't literally see <p> or <span> tags
+    clean_pdf_text = strip_html_tags(raw_content)
+    
+    # If a block is long, reportlab's drawString won't wrap it. 
+    # For a simple text layer, this is okay, but we truncate it slightly so it doesn't run off the page.
+    c.drawString(x1, pdf_y, clean_pdf_text[:100] + ("..." if len(clean_pdf_text) > 100 else ""))
 
 # --- FINALIZE HTML ---
 html_lines.append("  </div>")
