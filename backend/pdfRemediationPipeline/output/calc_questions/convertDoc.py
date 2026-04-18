@@ -11,17 +11,20 @@ def strip_html_tags(text):
     text = text.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
     return re.sub(clean, '', text).strip()
 
-def extract_content(block):
-    """Recursively extracts text or HTML from a block."""
+def extract_content(block, is_math=False):
+    """Recursively extracts content. Ignores HTML wrappers if the block is an equation."""
     content = ""
-    if block.get('html'):
-        content += block['html'] + " "
-    elif block.get('text'):
+    
+    # If it's math, we ONLY want the raw LaTeX text, not Marker's HTML tags
+    if not is_math and block.get('html'):
+        return block['html']
+        
+    if block.get('text'):
         content += block['text'] + " "
         
     if block.get('children'):
         for child in block['children']:
-            content += extract_content(child) + " "
+            content += extract_content(child, is_math) + " "
             
     return content.strip()
 
@@ -46,7 +49,6 @@ def get_meta_title(page_id, block):
         block_y1 = block.get('bbox', [0,0,0,0])[1]
         for entry in toc_mapping[page_id]:
             toc_y1 = entry.get('polygon', [[0,0]])[0][1]
-            # If they are within ~30 pixels of each other vertically, it's a match
             if abs(block_y1 - toc_y1) < 30:
                 return entry.get('title', '')
     return ""
@@ -70,7 +72,6 @@ html_lines = [
     "<style>",
     f"  .page {{ position: relative; width: {page_width}px; height: {page_height}px; border: 1px solid #ccc; margin: 20px auto; background: white; }}",
     "  .block { position: absolute; margin: 0; font-family: sans-serif; font-size: 12px; }",
-    # FIX: Added white-space: nowrap to prevent headers from cascading downward
     "  h1.block { font-size: 16px; font-weight: bold; white-space: nowrap; }",
     "  h2.block { font-size: 14px; font-weight: bold; white-space: nowrap; }",
     "  .header.block, .footer.block { font-size: 10px; color: gray; }",
@@ -83,12 +84,10 @@ html_lines = [
 pdf_path = "reconstructed_layout.pdf"
 c = canvas.Canvas(pdf_path, pagesize=(page_width, page_height))
 
-# 3. FIX: Loop through ALL pages in the document, not just index [0]
 pages = data.get('children', [])
 for page_index, page in enumerate(pages):
     html_lines.append("  <div class='page'>")
     
-    # Sort blocks on this specific page
     page_blocks = page.get('children', [])
     sorted_blocks = sorted(
         page_blocks, 
@@ -100,19 +99,27 @@ for page_index, page in enumerate(pages):
         x1, y1, x2, y2 = bbox
         block_type = block.get('block_type', 'Text')
         
-        raw_content = extract_content(block)
+        is_equation = (block_type == "Equation")
+        raw_content = extract_content(block, is_math=is_equation)
         
-        # Pull missing title text from the meta file
         if not raw_content.strip() and block_type in ["SectionHeader", "Title"]:
             raw_content = get_meta_title(page_index, block)
             
         if not raw_content.strip():
             continue
             
-        # FIX: Strip existing $ tags from Marker so we don't accidentally nest them inside our wrapper
-        if block_type == "Equation":
-            raw_content = raw_content.replace('$', '')
-            raw_content = f"$${raw_content}$$"
+        # THE FIX: Aggressively clean Marker's raw LaTeX and safely wrap it
+        if is_equation:
+            # 1. Remove all possible existing delimiters so they don't nest 
+            clean_math = raw_content.replace('\\$', '').replace('$', '')
+            clean_math = clean_math.replace('\\[', '').replace('\\]', '')
+            clean_math = clean_math.replace('\\(', '').replace('\\)', '')
+            
+            # 2. Escape angle brackets so the HTML parser doesn't swallow them
+            clean_math = clean_math.replace('<', '&lt;').replace('>', '&gt;')
+            
+            # 3. Cleanly wrap
+            raw_content = f"$${clean_math.strip()}$$"
             
         clean_pdf_text = strip_html_tags(raw_content)
         
@@ -128,7 +135,6 @@ for page_index, page in enumerate(pages):
         else:
             tag = "div" 
             
-        # FIX: For h1 and h2 tags, we remove the strict `width` style constraint so the text naturally flows horizontally
         if tag in ["h1", "h2"]:
             html_lines.append(f"    <{tag} class='block' style='left: {x1}px; top: {y1}px;'>{raw_content}</{tag}>")
         else:
@@ -137,7 +143,6 @@ for page_index, page in enumerate(pages):
         # --- PDF GENERATION ---
         pdf_y = page_height - y1 - 10 
         
-        # FIX: Dropped header font sizes closer to the original Kuta document so they fit on one line
         if block_type == "Title":
             c.setFont("Helvetica-Bold", 14)
         elif block_type == "SectionHeader":
@@ -149,7 +154,6 @@ for page_index, page in enumerate(pages):
             
         c.drawString(x1, pdf_y, clean_pdf_text[:120] + ("..." if len(clean_pdf_text) > 120 else ""))
         
-    # Close out the page
     c.showPage()
     html_lines.append("  </div>")
 
