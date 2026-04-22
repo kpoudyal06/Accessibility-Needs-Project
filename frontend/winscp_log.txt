@@ -4894,3 +4894,198 @@
 . 2026-04-19 08:45:45.868 JOB_20260419_084545_UBLA;d;0;2026-04-19T12:45:46.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
 . 2026-04-19 08:45:45.868 JOB_20260418_100752_HLPF;d;0;2026-04-19T12:45:45.000Z;4;"elliotg2" [221613];"cmsc447sp26" [1052];rwxrws---;0
 . 2026-04-19 08:45:46.256 Increasing send buffer from 262144 to 524288
+. 2026-04-22 12:27:38.839 --------------------------------------------------------------------------
+. 2026-04-22 12:27:38.842 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-22 12:27:38.842 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-22 12:27:38.842 Log level: Normal
+. 2026-04-22 12:27:38.842 Local account: ELLIOTS_LAPTOP\theya
+. 2026-04-22 12:27:38.842 Working directory: C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend
+. 2026-04-22 12:27:38.842 Process ID: 13524
+. 2026-04-22 12:27:38.867 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-22 12:27:38.869 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_23644_69 "/log=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_log.txt" "/script=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_sync_generated.txt" 
+. 2026-04-22 12:27:38.869 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-22 12:27:38.869 Login time: Wednesday, April 22, 2026 12:27:38 PM
+. 2026-04-22 12:27:38.869 --------------------------------------------------------------------------
+. 2026-04-22 12:27:38.869 Script: Retrospectively logging previous script records:
+> 2026-04-22 12:27:38.869 Script: option batch abort
+< 2026-04-22 12:27:38.869 Script: batch           abort     
+> 2026-04-22 12:27:38.869 Script: option confirm off
+< 2026-04-22 12:27:38.869 Script: confirm         off       
+> 2026-04-22 12:27:38.869 Script: open sftp://elliotg2:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"
+. 2026-04-22 12:27:38.869 --------------------------------------------------------------------------
+. 2026-04-22 12:27:38.869 Session name: elliotg2@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-22 12:27:38.869 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-22 12:27:38.869 User name: elliotg2 (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-22 12:27:38.869 Tunnel: No
+. 2026-04-22 12:27:38.869 Transfer Protocol: SFTP
+. 2026-04-22 12:27:38.869 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-22 12:27:38.869 Disable Nagle: No
+. 2026-04-22 12:27:38.869 Proxy: None
+. 2026-04-22 12:27:38.869 Send buffer: 262144
+. 2026-04-22 12:27:38.869 Compression: No
+. 2026-04-22 12:27:38.869 Bypass authentication: No
+. 2026-04-22 12:27:38.869 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-22 12:27:38.869 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-22 12:27:38.869 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-22 12:27:38.869 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-22 12:27:38.869 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-22 12:27:38.869 Simple channel: Yes
+. 2026-04-22 12:27:38.869 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-22 12:27:38.869 Shell: default
+. 2026-04-22 12:27:38.869 EOL: LF, UTF: Auto
+. 2026-04-22 12:27:38.869 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-22 12:27:38.869 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-22 12:27:38.869 SFTP Bugs: Auto,Auto
+. 2026-04-22 12:27:38.869 SFTP Server: default
+. 2026-04-22 12:27:38.869 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-22 12:27:38.869 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-22 12:27:38.869 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-22 12:27:38.869 DST mode: Unix
+. 2026-04-22 12:27:38.869 --------------------------------------------------------------------------
+< 2026-04-22 12:27:38.869 Script: Searching for host...
+. 2026-04-22 12:27:38.875 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-22 12:27:38.881 Connecting to 130.85.12.135 port 22
+. 2026-04-22 12:27:38.894 Connected to 130.85.12.135 (from 130.85.47.48:54517)
+< 2026-04-22 12:27:38.894 Script: Connecting to host...
+. 2026-04-22 12:27:38.894 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-22 12:27:38.894 Connected to 130.85.12.135 (from 130.85.47.48:54517)
+. 2026-04-22 12:27:38.908 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-22 12:27:38.908 Using SSH protocol version 2
+. 2026-04-22 12:27:38.910 Have a known host key of type ssh-ed25519
+. 2026-04-22 12:27:38.921 Enabling strict key exchange semantics
+. 2026-04-22 12:27:38.925 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-22 12:27:39.025 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-22 12:27:39.025 Host key fingerprint is:
+. 2026-04-22 12:27:39.025 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-22 12:27:39.025 Script: Authenticating...
+. 2026-04-22 12:27:39.025 Host key does not match configured key fingerprint ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5
+. 2026-04-22 12:27:39.030 Attempt to close connection due to fatal exception:
+* 2026-04-22 12:27:39.030 Host key fingerprint is ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk.
+* 2026-04-22 12:27:39.030 (Exception) **Host key does not match configured key fingerprint "ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"!**
+. 2026-04-22 12:27:39.030 Closing connection.
+< 2026-04-22 12:27:39.041 Script: Host key does not match configured key fingerprint "ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNkMD5"!
+< 2026-04-22 12:27:39.041 Host key fingerprint is ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk.
+< 2026-04-22 12:27:39.041 Authentication failed.
+. 2026-04-22 12:28:10.371 --------------------------------------------------------------------------
+. 2026-04-22 12:28:10.375 WinSCP Version 6.5.6 (Build 16502 2026-03-25) (OS 10.0.26200 – Windows 11 Home)
+. 2026-04-22 12:28:10.375 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2026-04-22 12:28:10.375 Log level: Normal
+. 2026-04-22 12:28:10.375 Local account: ELLIOTS_LAPTOP\theya
+. 2026-04-22 12:28:10.375 Working directory: C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend
+. 2026-04-22 12:28:10.375 Process ID: 12824
+. 2026-04-22 12:28:10.396 Ancestor processes: WinSCP, wsl, wsl, WindowsTerminal, explorer, ...
+. 2026-04-22 12:28:10.396 Command-line: "C:\Program Files (x86)\WinSCP\WinSCP.exe" /console=6.5.6 /consoleinstance=_24292_749 "/log=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_log.txt" "/script=C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\winscp_sync_generated.txt" 
+. 2026-04-22 12:28:10.396 Time zone: Current: GMT-4, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/8/2026, DST End: 11/1/2026
+. 2026-04-22 12:28:10.396 Login time: Wednesday, April 22, 2026 12:28:10 PM
+. 2026-04-22 12:28:10.396 --------------------------------------------------------------------------
+. 2026-04-22 12:28:10.396 Script: Retrospectively logging previous script records:
+> 2026-04-22 12:28:10.396 Script: option batch abort
+< 2026-04-22 12:28:10.396 Script: batch           abort     
+> 2026-04-22 12:28:10.396 Script: option confirm off
+< 2026-04-22 12:28:10.396 Script: confirm         off       
+> 2026-04-22 12:28:10.396 Script: open sftp://elliotg2:***@chip.rs.umbc.edu/ -hostkey="ssh-ed25519 255 KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk"
+. 2026-04-22 12:28:10.396 --------------------------------------------------------------------------
+. 2026-04-22 12:28:10.396 Session name: elliotg2@chip.rs.umbc.edu (Ad-Hoc site)
+. 2026-04-22 12:28:10.396 Host name: chip.rs.umbc.edu (Port: 22)
+. 2026-04-22 12:28:10.396 User name: elliotg2 (Password: Yes, Key file: No, Passphrase: No)
+. 2026-04-22 12:28:10.396 Tunnel: No
+. 2026-04-22 12:28:10.396 Transfer Protocol: SFTP
+. 2026-04-22 12:28:10.396 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2026-04-22 12:28:10.396 Disable Nagle: No
+. 2026-04-22 12:28:10.396 Proxy: None
+. 2026-04-22 12:28:10.396 Send buffer: 262144
+. 2026-04-22 12:28:10.396 Compression: No
+. 2026-04-22 12:28:10.396 Bypass authentication: No
+. 2026-04-22 12:28:10.396 Try agent: Yes; Agent forwarding: No; KI: Yes; GSSAPI: Yes
+. 2026-04-22 12:28:10.396 GSSAPI: KEX: No; Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2026-04-22 12:28:10.396 Ciphers: aes,chacha20,aesgcm,3des,WARN,des,blowfish,arcfour; Ssh2DES: No
+. 2026-04-22 12:28:10.396 KEX: ntru-curve25519,mlkem-curve25519,mlkem-nist,ecdh,dh-gex-sha1,dh-group18-sha512,dh-group17-sha512,dh-group16-sha512,dh-group15-sha512,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2026-04-22 12:28:10.396 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2026-04-22 12:28:10.398 Simple channel: Yes
+. 2026-04-22 12:28:10.398 Return code variable: Autodetect; Lookup user groups: Auto
+. 2026-04-22 12:28:10.398 Shell: default
+. 2026-04-22 12:28:10.398 EOL: LF, UTF: Auto
+. 2026-04-22 12:28:10.398 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2026-04-22 12:28:10.398 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No; Exit code 1 is error: No
+. 2026-04-22 12:28:10.398 SFTP Bugs: Auto,Auto
+. 2026-04-22 12:28:10.398 SFTP Server: default
+. 2026-04-22 12:28:10.398 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2026-04-22 12:28:10.398 Cache directory changes: Yes, Permanent: Yes
+. 2026-04-22 12:28:10.398 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2026-04-22 12:28:10.398 DST mode: Unix
+. 2026-04-22 12:28:10.398 --------------------------------------------------------------------------
+< 2026-04-22 12:28:10.398 Script: Searching for host...
+. 2026-04-22 12:28:10.398 Looking up host "chip.rs.umbc.edu" for SSH connection
+. 2026-04-22 12:28:10.403 Connecting to 130.85.12.135 port 22
+. 2026-04-22 12:28:10.403 Connected to 130.85.12.135 (from 130.85.47.48:57937)
+< 2026-04-22 12:28:10.414 Script: Connecting to host...
+. 2026-04-22 12:28:10.414 We claim version: SSH-2.0-WinSCP_release_6.5.6
+. 2026-04-22 12:28:10.414 Connected to 130.85.12.135 (from 130.85.47.48:57937)
+. 2026-04-22 12:28:10.432 Remote version: SSH-2.0-OpenSSH_8.7
+. 2026-04-22 12:28:10.432 Using SSH protocol version 2
+. 2026-04-22 12:28:10.432 Have a known host key of type ssh-ed25519
+. 2026-04-22 12:28:10.440 Enabling strict key exchange semantics
+. 2026-04-22 12:28:10.440 Doing ECDH key exchange with curve Curve25519, using hash SHA-256
+. 2026-04-22 12:28:10.559 Server also has ecdsa-sha2-nistp256/rsa-sha2-512/rsa-sha2-256 host keys, but we don't know any of them
+. 2026-04-22 12:28:10.559 Host key fingerprint is:
+. 2026-04-22 12:28:10.559 ssh-ed25519 255 SHA256:KssMZdd+0v72I1Rd3H/zj161sMEr8mVON/Ylg27wHNk
+< 2026-04-22 12:28:10.559 Script: Authenticating...
+. 2026-04-22 12:28:10.561 Host key matches configured key fingerprint
+. 2026-04-22 12:28:10.563 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] outbound encryption
+. 2026-04-22 12:28:10.563 Initialised HMAC-SHA-256 outbound MAC algorithm
+. 2026-04-22 12:28:10.563 Initialised AES-256 SDCTR (AES-NI accelerated) [aes256-ctr] inbound encryption
+. 2026-04-22 12:28:10.563 Initialised HMAC-SHA-256 inbound MAC algorithm
+! 2026-04-22 12:28:10.572 Using username "elliotg2".
+< 2026-04-22 12:28:10.574 Script: Using username "elliotg2".
+. 2026-04-22 12:28:10.588 Server offered these authentication methods: publickey,gssapi-with-mic,keyboard-interactive
+. 2026-04-22 12:28:10.588 Using SSPI from SECUR32.DLL
+. 2026-04-22 12:28:10.588 Trying gssapi-with-mic...
+. 2026-04-22 12:28:10.588 Attempting GSSAPI authentication
+. 2026-04-22 12:28:10.667 GSSAPI authentication initialisation failed
+. 2026-04-22 12:28:10.667 The target was not recognized.
+. 2026-04-22 12:28:10.667 Attempting keyboard-interactive authentication
+. 2026-04-22 12:28:10.671 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, "Password: ")
+. 2026-04-22 12:28:10.671 Using stored password.
+< 2026-04-22 12:28:10.671 Script: Authenticating with pre-entered password.
+. 2026-04-22 12:28:11.458 Prompt (keyboard interactive, "SSH server authentication", <no instructions>, <no prompt>)
+. 2026-04-22 12:28:11.458 Ignoring empty SSH server authentication request
+. 2026-04-22 12:28:11.458 Access granted
+. 2026-04-22 12:28:11.458 Opening main session channel
+. 2026-04-22 12:28:11.554 Opened main channel
+. 2026-04-22 12:28:11.554 Started a shell/command
+< 2026-04-22 12:28:11.554 Script: Authenticated.
+. 2026-04-22 12:28:11.554 --------------------------------------------------------------------------
+. 2026-04-22 12:28:11.554 Using SFTP protocol.
+. 2026-04-22 12:28:11.554 Doing startup conversation with host.
+< 2026-04-22 12:28:11.554 Script: Starting the session...
+. 2026-04-22 12:28:11.554 Well known server, allowing SFTP version 6.
+> 2026-04-22 12:28:11.554 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2026-04-22 12:28:13.002 Type: SSH_FXP_VERSION, Size: 238, Number: -1
+. 2026-04-22 12:28:13.002 SFTP version 3 negotiated.
+. 2026-04-22 12:28:13.016 Supports extension posix-rename@openssh.com="1"
+. 2026-04-22 12:28:13.016 Supports statvfs@openssh.com extension version 2
+. 2026-04-22 12:28:13.016 Unknown server extension fstatvfs@openssh.com="2"
+. 2026-04-22 12:28:13.016 Supports hardlink@openssh.com extension version 1
+. 2026-04-22 12:28:13.016 Unknown server extension fsync@openssh.com="1"
+. 2026-04-22 12:28:13.016 Unknown server extension lsetstat@openssh.com="1"
+. 2026-04-22 12:28:13.016 Supports limits@openssh.com extension version 1
+. 2026-04-22 12:28:13.016 Unknown server extension expand-path@openssh.com="1"
+. 2026-04-22 12:28:13.016 We believe the server has signed timestamps bug
+. 2026-04-22 12:28:13.016 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+> 2026-04-22 12:28:13.016 Type: SSH_FXP_EXTENDED, Size: 27, Number: 200
+< 2026-04-22 12:28:13.016 Type: SSH_FXP_EXTENDED_REPLY, Size: 37, Number: 200
+. 2026-04-22 12:28:13.016 Limiting packet size to server's limit of 262144 + 4 bytes
+. 2026-04-22 12:28:13.016 Getting current directory name.
+. 2026-04-22 12:28:13.016 Getting real path for '.'
+> 2026-04-22 12:28:13.016 Type: SSH_FXP_REALPATH, Size: 10, Number: 272
+< 2026-04-22 12:28:13.035 Type: SSH_FXP_NAME, Size: 49, Number: 272
+. 2026-04-22 12:28:13.035 Real path is '/home/elliotg2'
+. 2026-04-22 12:28:13.035 Startup conversation with host finished.
+< 2026-04-22 12:28:13.035 Script: Session started.
+< 2026-04-22 12:28:13.035 Script: Active session: [1] elliotg2@chip.rs.umbc.edu
+> 2026-04-22 12:28:13.035 Script: keepuptodate "C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\websitePDFs" /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation
+< 2026-04-22 12:28:13.035 Script: Watching for changes, press Ctrl-C to abort...
+< 2026-04-22 12:28:13.035 Script: Scanning 'C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
+. 2026-04-22 12:28:13.035 Keep up to date: Scanning 'C:\Users\theya\Downloads\Accessibility-Needs-Project\frontend\websitePDFs' for subdirectories...
+< 2026-04-22 12:28:13.040 Script: Watching for changes in 3 directories...
+. 2026-04-22 12:28:13.040 Keep up to date: Watching for changes in 3 directories...

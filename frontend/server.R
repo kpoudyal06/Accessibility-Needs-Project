@@ -111,31 +111,52 @@ server <- function(input, output, session) {
     random_str <- paste0(sample(LETTERS, 4, replace = TRUE), collapse = "")
     new_job_id <- paste0("JOB_", timestamp, "_", random_str)
     
-    # 2. Define path for the new JOB-SPECIFIC directory
-    base_destination <- file.path("/mnt/c", "Users", win_user, "Downloads", "Accessibility-Needs-Project", "frontend", "websitePDFs")    
+    # 2. Define paths for the new JOB-SPECIFIC directory
+    wsl_frontend_dir <- file.path("/mnt/c", "Users", win_user, "Downloads", "Accessibility-Needs-Project", "frontend")
+    base_destination <- file.path(wsl_frontend_dir, "websitePDFs")    
     job_directory <- file.path(base_destination, new_job_id)
     
-    # Ensure directory exists
+    # Windows path needed for WinSCP
+    win_job_directory <- sprintf("C:\\Users\\%s\\Downloads\\Accessibility-Needs-Project\\frontend\\websitePDFs\\%s", win_user, new_job_id)
+    
+    # Ensure local directory exists
     dir.create(job_directory, showWarnings = FALSE, recursive = TRUE)
     
-    # 3. Loop through and copy all uploaded files into the unique Job directory
+    # 3. Loop through and copy all uploaded files into the unique local Job directory
     for (i in 1:nrow(input$file1)) {
-      # Apply naming convention
       file_name <- paste0(input$student_id, "_", input$file1$name[i])
       file.copy(input$file1$datapath[i], file.path(job_directory, file_name))
     }
     
-    # 4. Save the Job ID to reactiveVal and switch UI to confirmation screen
+    # 4. Generate dynamic WinSCP script to upload and clean up files after upload
+    winscp_script_wsl <- tempfile(pattern = "upload_clean_", tmpdir = wsl_frontend_dir, fileext = ".txt")
+    script_filename <- basename(winscp_script_wsl)
+    winscp_script_win <- sprintf("C:\\Users\\%s\\Downloads\\Accessibility-Needs-Project\\frontend\\%s", win_user, script_filename)
+    
+    remote_dest <- sprintf("%s/%s/", cluster_base_path, new_job_id)
+    
+    script_lines <- c(
+      "option batch abort",
+      "option confirm off",
+      sprintf("open sftp://%s:%s@chip.rs.umbc.edu", cluster_user, cluster_pwd),
+      sprintf("mkdir \"%s\"", remote_dest), # Create the unique job folder on the cluster
+      sprintf("put -delete \"%s\\*\" \"%s\"", win_job_directory, remote_dest), # Upload all PDFs and delete local copies immediately
+      "exit"
+    )
+    
+    writeLines(script_lines, winscp_script_wsl)
+    
+    # Execute the WinSCP upload
+    cmd <- sprintf('"%s" /script="%s"', winscp_exe, winscp_script_win)
+    system(cmd, wait = TRUE) # Wait ensures Shiny doesn't show success until the upload actually finishes
+    
+    # Clean up the script file and the now-empty local job folder
+    if (file.exists(winscp_script_wsl)) unlink(winscp_script_wsl)
+    unlink(job_directory, recursive = TRUE) 
+    
+    # 5. Save the Job ID to reactiveVal and switch UI to confirmation screen
     job_id_val(new_job_id)
     submitted(TRUE)
-  })
-  
-  # Handle "Return to Submission" button
-  observeEvent(input$back, {
-    submitted(FALSE)
-    clear_preview()
-    pdf_uploaded(NULL)
-    job_id_val("")
   })
   
   # --- Job Validation ---
