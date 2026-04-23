@@ -1,0 +1,70 @@
+{
+  "children": [
+    {
+      "id": "/page/0/Page/4",
+      "block_type": "Page",
+      "html": "<content-ref src='/page/0/PageHeader/0'></content-ref>",
+      "polygon": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          612.0,
+          0.0
+        ],
+        [
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          792.0
+        ]
+      ],
+      "bbox": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "children": [
+        {
+          "id": "/page/0/PageHeader/0",
+          "block_type": "PageHeader",
+          "html": "",
+          "polygon": [
+            [
+              70.5234375,
+              72.31640625
+            ],
+            [
+              82.15166473388672,
+              72.31640625
+            ],
+            [
+              82.15166473388672,
+              88.8023681640625
+            ],
+            [
+              70.5234375,
+              88.8023681640625
+            ]
+          ],
+          "bbox": [
+            70.5234375,
+            72.31640625,
+            82.15166473388672,
+            88.8023681640625
+          ],
+          "children": null,
+          "section_hierarchy": {},
+          "images": {}
+        }
+      ],
+      "section_hierarchy": {},
+      "images": null
+    }
+  ],
+  "block_type": "Document"
+}

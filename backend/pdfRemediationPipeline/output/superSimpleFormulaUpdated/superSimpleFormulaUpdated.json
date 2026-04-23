@@ -1,0 +1,102 @@
+{
+  "children": [
+    {
+      "id": "/page/0/Page/77",
+      "block_type": "Page",
+      "html": "<content-ref src='/page/0/PageHeader/0'></content-ref><content-ref src='/page/0/Text/1'></content-ref>",
+      "polygon": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          612.0,
+          0.0
+        ],
+        [
+          612.0,
+          792.0
+        ],
+        [
+          0.0,
+          792.0
+        ]
+      ],
+      "bbox": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "children": [
+        {
+          "id": "/page/0/PageHeader/0",
+          "block_type": "PageHeader",
+          "html": "",
+          "polygon": [
+            [
+              70.5234375,
+              73.4156494140625
+            ],
+            [
+              83.58544158935547,
+              73.4156494140625
+            ],
+            [
+              83.58544158935547,
+              88.8023681640625
+            ],
+            [
+              70.5234375,
+              88.8023681640625
+            ]
+          ],
+          "bbox": [
+            70.5234375,
+            73.4156494140625,
+            83.58544158935547,
+            88.8023681640625
+          ],
+          "children": null,
+          "section_hierarchy": {},
+          "images": {}
+        },
+        {
+          "id": "/page/0/Text/1",
+          "block_type": "Text",
+          "html": "<p block-type=\"Text\">This is a test of the Nougat OCR system to see if it can read basic math. Here is the equation we are testing:  We will see if the model successfully captures this. 2</p>",
+          "polygon": [
+            [
+              70.5234375,
+              135.3515625
+            ],
+            [
+              526.7659912109375,
+              135.3515625
+            ],
+            [
+              526.7659912109375,
+              165.88519287109375
+            ],
+            [
+              70.5234375,
+              165.88519287109375
+            ]
+          ],
+          "bbox": [
+            70.5234375,
+            135.3515625,
+            526.7659912109375,
+            165.88519287109375
+          ],
+          "children": null,
+          "section_hierarchy": {},
+          "images": {}
+        }
+      ],
+      "section_hierarchy": {},
+      "images": null
+    }
+  ],
+  "block_type": "Document"
+}
