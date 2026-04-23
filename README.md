@@ -1,4 +1,4 @@
-# Automated Web-to-Cluster File Pipeline (Backend Prototype)
+# Accessibility Needs Project
 
 This project uses a Shiny web app running in WSL to accept PDF uploads. Since our UMBC cluster is protected by DUO, we use WinSCP and the Global Protect VPN (connect to `gpvpn.umbc.edu`) running in the background to automatically bridge the gap and sync the files directly to the cluster without constant 2FA prompts.
 
