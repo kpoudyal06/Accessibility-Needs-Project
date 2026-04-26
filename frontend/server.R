@@ -1,3 +1,6 @@
+library(DBI)
+library(RPostgres)
+
 win_user     <- Sys.getenv("WIN_USER")
 cluster_user <- Sys.getenv("CLUSTER_USER")
 cluster_pwd  <- Sys.getenv("CLUSTER_PWD")
@@ -7,7 +10,20 @@ winscp_exe   <- "/mnt/c/Program Files (x86)/WinSCP/WinSCP.com"
 cluster_base_path <- "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation"
 
 server <- function(input, output, session) {
-  
+  con <- tryCatch({
+    DBI::dbConnect(
+      RPostgres::Postgres(),
+      dbname = "accessibility_db",
+      host = "localhost",
+      port = 5432,
+      user = "dbadmin",
+      password = "dbpass"
+    )
+  }, error = function(e) {
+    message("DB connection failed: ", e$message)
+    NULL
+  })
+
   # Reactive values for upload tracking
   submitted <- reactiveVal(FALSE)
   pdf_uploaded <- reactiveVal(NULL)
@@ -110,7 +126,34 @@ server <- function(input, output, session) {
     timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
     random_str <- paste0(sample(LETTERS, 4, replace = TRUE), collapse = "")
     new_job_id <- paste0("JOB_", timestamp, "_", random_str)
-    
+  
+      # Database Inserts
+    if (!is.null(con)) {
+      # Insert User
+      user_result <- dbGetQuery(con, sprintf("
+        INSERT INTO Users (Student_ID, Email)
+        VALUES ('%s', '%s')
+        RETURNING User_ID AS user_id;
+      ", input$student_id, input$email))
+
+      user_id <- user_result$user_id[1]
+
+      # Insert Submission
+      submission_result <- dbGetQuery(con, sprintf("
+        INSERT INTO Submissions (User_ID, Upload_Timestamp, File_Name)
+        VALUES (%d, NOW(), '%s')
+        RETURNING PDF_Submission_ID AS pdf_submission_id;
+      ", user_id, input$file1$name[1]))
+
+      submission_id <- submission_result$pdf_submission_id[1]
+
+      # Insert Job
+      dbExecute(con, sprintf("
+        INSERT INTO HPCJob (Cluster_Slurm_ID, PDF_Submission_ID, Current_Status)
+        VALUES ('%s', %d, 'QUEUED');
+      ", new_job_id, submission_id)) 
+    }
+  
     # 2. Define paths for the new JOB-SPECIFIC directory
     wsl_frontend_dir <- file.path("/mnt/c", "Users", win_user, "Downloads", "Accessibility-Needs-Project", "frontend")
     base_destination <- file.path(wsl_frontend_dir, "websitePDFs")    
