@@ -1,66 +1,37 @@
 import time
-import slurm_api  # Hypothetical module to interact with sbatch/sacct
-import database   # Hypothetical module to query your SQL db
-import mailer     # Hypothetical module to send emails
+import slurm_api  # sacct, sbatch
+import database   # SQL interactions
+import mailer     # Google/SMTP email
+import file_ops   # os.remove, shutil.rmtree
 
-def main_loop():
-    # Run forever, but sleep at the end of each cycle so we don't fry the server
+def watcher_loop():
     while True:
-        
-        # ---------------------------------------------------------
-        # PHASE 1: Handle NEW Submissions (Pending -> Running)
-        # ---------------------------------------------------------
-        pending_jobs = database.get_jobs_by_status("Pending")
-        
-        for job in pending_jobs:
-            submission_id = job.pdf_submission_id
-            directory_path = f"/shared/submissions/{submission_id}/"
-            
-            # Submit the sbatch script for this directory
-            slurm_job_id = slurm_api.submit_job(directory_path)
-            
-            if slurm_job_id:
-                # Update DB immediately so we don't submit it twice
-                database.update_job(
-                    submission_id=submission_id, 
-                    new_status="Running", 
-                    cluster_slurm_id=slurm_job_id
-                )
+        # 1. SUBMISSION PHASE
+        # Find 'Pending' jobs -> Run sbatch (which runs MarkerLLM + PDF/HTML scripts)
+        for job in database.get_jobs_by_status("Pending"):
+            slurm_id = slurm_api.submit_job(job.folder_path)
+            database.update_status(job.id, "Running", slurm_id)
+            # Send 'Job Received' Email
+            mailer.send(job.email, f"Job {job.id} is now in the queue.")
 
-        # ---------------------------------------------------------
-        # PHASE 2 & 3: Check RUNNING Jobs (Running -> Finished/Error)
-        # ---------------------------------------------------------
-        running_jobs = database.get_jobs_by_status("Running")
-        
-        for job in running_jobs:
-            slurm_id = job.cluster_slurm_id
-            submission_id = job.pdf_submission_id
-            directory_path = f"/shared/submissions/{submission_id}/"
-            
-            # Check SLURM for the status of this specific job
-            slurm_status = slurm_api.check_status(slurm_id) 
-            
-            if slurm_status == "COMPLETED" or slurm_status == "FAILED":
-                
-                # Check the .err file to confirm actual success/failure
-                error_file_path = f"{directory_path}/job.err"
-                if has_critical_errors(error_file_path):
-                    final_status = "Error"
+        # 2. MONITORING PHASE
+        # Find 'Running' jobs -> Check if SLURM says they are done
+        for job in database.get_jobs_by_status("Running"):
+            if slurm_api.is_finished(job.slurm_id):
+                if file_ops.check_for_errors(job.folder_path):
+                    database.update_status(job.id, "Error")
+                    mailer.send(job.email, "Job failed. Check logs.")
                 else:
-                    final_status = "Success"
-                
-                # Extract research metrics (hardware, runtime, etc.)
-                metrics = extract_research_data(directory_path, slurm_id)
-                
-                # Save everything to the database
-                database.log_research_metrics(submission_id, metrics)
-                database.update_job(submission_id, new_status=final_status)
-                
-                # Send the notification email
-                user_email = job.email
-                mailer.send_notification(user_email, submission_id, final_status)
+                    database.update_status(job.id, "Ready_For_Download")
+                    mailer.send(job.email, "Success! Your files are ready to download.")
 
-        # ---------------------------------------------------------
-        # SLEEP: Give the server a break before checking again
-        # ---------------------------------------------------------
-        time.sleep(30) # Wait 30 seconds before looping again
+        # 3. CLEANUP PHASE (The Space Saver)
+        # Find 'Downloaded' jobs -> Wipe the directory to save HPC space
+        for job in database.get_jobs_by_status("Downloaded"):
+            # We keep the database record for your research! 
+            # We only delete the heavy PDF/HTML files.
+            file_ops.delete_directory(job.folder_path)
+            database.update_status(job.id, "Archived")
+            print(f"Space cleared for job {job.id}")
+
+        time.sleep(30)
