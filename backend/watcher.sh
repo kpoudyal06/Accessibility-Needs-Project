@@ -1,37 +1,46 @@
-import time
-import slurm_api  # sacct, sbatch
-import database   # SQL interactions
-import mailer     # Google/SMTP email
-import file_ops   # os.remove, shutil.rmtree
+#!/bin/bash
 
-def watcher_loop():
-    while True:
-        # 1. SUBMISSION PHASE
-        # Find 'Pending' jobs -> Run sbatch (which runs MarkerLLM + PDF/HTML scripts)
-        for job in database.get_jobs_by_status("Pending"):
-            slurm_id = slurm_api.submit_job(job.folder_path)
-            database.update_status(job.id, "Running", slurm_id)
-            # Send 'Job Received' Email
-            mailer.send(job.email, f"Job {job.id} is now in the queue.")
+# --- CONFIGURATION ---
+# The directory where the website drops the "pdf_submission_id" folders
+WATCH_DIR="/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation"
+LOG_FILE="/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/watcher.log"
+SBATCH_SCRIPT="/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/scripts/process_job.slurm"
 
-        # 2. MONITORING PHASE
-        # Find 'Running' jobs -> Check if SLURM says they are done
-        for job in database.get_jobs_by_status("Running"):
-            if slurm_api.is_finished(job.slurm_id):
-                if file_ops.check_for_errors(job.folder_path):
-                    database.update_status(job.id, "Error")
-                    mailer.send(job.email, "Job failed. Check logs.")
-                else:
-                    database.update_status(job.id, "Ready_For_Download")
-                    mailer.send(job.email, "Success! Your files are ready to download.")
+echo "Watcher started at $(date). Monitoring: $WATCH_DIR" >> "$LOG_FILE"
 
-        # 3. CLEANUP PHASE (The Space Saver)
-        # Find 'Downloaded' jobs -> Wipe the directory to save HPC space
-        for job in database.get_jobs_by_status("Downloaded"):
-            # We keep the database record for your research! 
-            # We only delete the heavy PDF/HTML files.
-            file_ops.delete_directory(job.folder_path)
-            database.update_status(job.id, "Archived")
-            print(f"Space cleared for job {job.id}")
+while true; do
+    # Loop through every subdirectory in the upload location
+    for folder in "$WATCH_DIR"/*/; do
+        
+        # Check if it's actually a directory (avoids issues if dir is empty)
+        if [ -d "$folder" ]; then
+            SUB_ID=$(basename "$folder")
 
-        time.sleep(30)
+            # FLAG CHECK: 
+            # We check if 'job.submitted' exists. If it doesn't, this is a NEW job.
+            if [ ! -f "$folder/job.submitted" ]; then
+                
+                echo "$(date): New submission detected: $SUB_ID" >> "$LOG_FILE"
+
+                # 1. Submit the SLURM job
+                # We pass the full folder path and the ID to the sbatch script
+                # We capture the output to get the Slurm Job ID
+                SUBMIT_OUT=$(sbatch "$SBATCH_SCRIPT" "$folder" "$SUB_ID")
+                SLURM_ID=$(echo $SUBMIT_OUT | awk '{print $4}')
+
+                # 2. Create the 'lock' file so we don't submit this again
+                # We store the Slurm ID inside the flag file for easy reference
+                echo "$SLURM_ID" > "$folder/job.submitted"
+
+                # 3. Log it for your research tracking
+                echo "$(date): $SUB_ID submitted to SLURM with ID: $SLURM_ID" >> "$LOG_FILE"
+                
+                # OPTIONAL: Here is where you'd run a quick SQL command to update 
+                # the database status from 'Pending' to 'Running'
+            fi
+        fi
+    done
+
+    # Wait 30 seconds. In HPC, you don't want to hammer the file system every second.
+    sleep 30
+done
