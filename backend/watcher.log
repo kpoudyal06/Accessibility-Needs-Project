@@ -6,3 +6,8 @@ Starting watcher on /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/b
 Starting watcher on /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation at Sun Apr 19 07:53:40 PM EDT 2026
 Starting watcher on /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation at Wed Apr 22 12:21:08 PM EDT 2026
 Starting watcher on /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation at Thu Apr 23 10:34:50 AM EDT 2026
+Watcher started at Wed Apr 29 11:30:44 AM EDT 2026. Monitoring: /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation
+Wed Apr 29 11:31:44 AM EDT 2026: New submission detected: JOB_20260429_113059_TFUM
+Wed Apr 29 11:31:44 AM EDT 2026: JOB_20260429_113059_TFUM submitted to SLURM with ID: 169626
+JOB_INSERT_SUCCESS:169626
+Wed Apr 29 11:31:44 AM EDT 2026: Database successfully updated for JOB_20260429_113059_TFUM
