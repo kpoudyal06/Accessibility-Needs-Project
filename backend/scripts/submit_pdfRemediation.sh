@@ -22,7 +22,7 @@ echo "Processing Submission ID: $SUB_ID in $JOB_DIR"
 
 echo "Loading modules..."
 module purge
-module load ollama/0.13.5
+# module load ollama/0.13.5
 
 eval "$(conda shell.bash hook)"
 
@@ -30,16 +30,16 @@ echo "Activating Conda environment: marker_env"
 conda activate /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/conda/marker_env
 
 # --- 2. STARTING OLLAMA SERVER ---
-echo "Starting local Ollama server..."
-export OLLAMA_MODELS=~/.ollama/models
-export OLLAMA_NUM_PARALLEL=4
-export OLLAMA_MAX_QUEUE=16
+# echo "Starting local Ollama server..."
+# export OLLAMA_MODELS=~/.ollama/models
+# export OLLAMA_NUM_PARALLEL=4
+# export OLLAMA_MAX_QUEUE=16
 
-ollama serve > logs/ollama_server_$SLURM_JOB_ID.log 2>&1 &
-OLLAMA_PID=$!
+# ollama serve > /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation/$JOD_DIR/ollama_server_$SLURM_JOB_ID.log 2>&1 &
+# OLLAMA_PID=$!
 
-sleep 30
-echo "Ollama server active (PID: $OLLAMA_PID)"
+# sleep 30
+# echo "Ollama server active (PID: $OLLAMA_PID)"
 
 # --- 3. RUN THE REMEDIATION ---
 echo "Running Bulk Marker processing..."
@@ -53,5 +53,5 @@ mkdir -p "$JOB_DIR/final_results"
 python /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/scripts/convertDoc.py --input "$JOB_DIR/marker_output" --output "$JOB_DIR/final_results"
 
 # --- 5. CLEANUP ---
-echo "Job finished at $(date). Stopping Ollama..."
-kill $OLLAMA_PID
+echo "Job finished at $(date)."
+# kill $OLLAMA_PID
