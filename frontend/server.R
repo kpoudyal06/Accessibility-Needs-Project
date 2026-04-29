@@ -335,7 +335,7 @@ server <- function(input, output, session) {
       "option batch abort",
       "option confirm off",
       sprintf("open sftp://%s:%s@chip.rs.umbc.edu", cluster_user, cluster_pwd),
-      sprintf("call cat %s/*.out", remote_job_dir),
+      sprintf("call cat %s/*.err", remote_job_dir),
       "exit"
     )
     
