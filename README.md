@@ -177,11 +177,11 @@ The database now lives on the **HPC cluster**, not in your local frontend direct
 
 ```
 Accessibility-Needs-Project
-├── README.md
-├── backend
-│   ├── clearBackend.sh
-│   ├── createDB.sql
-│   ├── db_scripts
+├── README.md                           # Full project overview and guide
+├── backend                            
+│   ├── clearBackend.sh                 # Just clears the .db and JOB_XYZ files in the backend
+│   ├── createDB.sql                    # Creates the initial database
+│   ├── db_scripts  
 │   │   ├── db_init.sh
 │   │   ├── db_insert_job.sh
 │   │   ├── db_insert_submission.sh
