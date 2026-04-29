@@ -1,7 +1,5 @@
 #!/bin/bash
 #SBATCH --job-name=pdfRemediation
-#SBATCH --output=logs/clean_%j.out
-#SBATCH --error=logs/clean_%j.err
 #SBATCH --cluster=chip-gpu
 #SBATCH --account=cmsc447sp26
 #SBATCH --partition=gpu     
