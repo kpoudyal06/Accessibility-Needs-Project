@@ -199,7 +199,6 @@ Accessibility-Needs-Project
     ├── README.md
     ├── WebsitePDFs
     ├── app.R
-    ├── downloads
     ├── server.R
     ├── ui.R
     ├── winscp_log.txt
@@ -207,7 +206,7 @@ Accessibility-Needs-Project
 ```
 To run: 
 ```
-tree -I 'conda|sampleOutputs|examplePDFs'
+tree -I 'conda|sampleOutputs|examplePDFs|downloads'
 ```
 
 ---
