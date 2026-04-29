@@ -73,47 +73,6 @@ CLUSTER_PWD="your_umbc_hpc_password"
 
 4. Save the file. The `app.R` script will automatically pull these variables to set up your local paths and establish the cluster connection.
 
-### 3. Set Up Backend Database Scripts on Cluster
-
-**Important:** This step must be completed by someone with access to the UMBC HPC cluster.
-
-1. SSH into the cluster:
-   ```bash
-   ssh your_username@chip.rs.umbc.edu
-   ```
-
-2. Navigate to the backend directory:
-   ```bash
-   cd /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend
-   ```
-
-3. Create the database scripts directory:
-   ```bash
-   mkdir -p db_scripts
-   ```
-
-4. Upload the database scripts to the `db_scripts/` folder:
-   - `db_init.sh`
-   - `db_insert_user.sh`
-   - `db_insert_submission.sh`
-   - `db_insert_job.sh`
-   - `db_query_job.sh`
-   - `db_update_job_status.sh`
-
-5. Make all scripts executable:
-   ```bash
-   chmod +x db_scripts/*.sh
-   ```
-
-6. Ensure `createDB.sql` is in the backend directory:
-   ```bash
-   ls -l createDB.sql
-   ```
-
-7. The database will be automatically initialized at `/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/accessibility.db` when the app first runs.
-
----
-
 ## How to Run
 
 1. **Connect to the VPN:** Ensure you are connected to the UMBC Global Protect VPN (`gpvpn.umbc.edu`).
