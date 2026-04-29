@@ -176,25 +176,38 @@ The database now lives on the **HPC cluster**, not in your local frontend direct
 ## Project Structure
 
 ```
-Accessibility-Needs-Project/
-├── frontend/
-│   ├── app.R           # Main Shiny app entry point
-│   ├── ui.R            # User interface definition
-│   ├── server.R        # Server logic (includes remote DB calls)
-│   ├── .Renviron       # Environment variables (NOT committed to git)
-│   └── www/            # Static assets (images, etc.)
-└── backend/
-    ├── accessibility.db            # SQLite database (created at runtime)
-    ├── createDB.sql                # Database schema
-    ├── watcher.sh                  # File monitoring script
-    ├── db_scripts/                 # Database operation scripts
-    │   ├── db_init.sh
-    │   ├── db_insert_user.sh
-    │   ├── db_insert_submission.sh
-    │   ├── db_insert_job.sh
-    │   ├── db_query_job.sh
-    │   └── db_update_job_status.sh
-    └── fileUploadLocation/         # Uploaded PDFs organized by Job ID
+Accessibility-Needs-Project
+├── README.md
+├── backend
+│   ├── clearBackend.sh
+│   ├── createDB.sql
+│   ├── db_scripts
+│   │   ├── db_init.sh
+│   │   ├── db_insert_job.sh
+│   │   ├── db_insert_submission.sh
+│   │   ├── db_insert_user.sh
+│   │   ├── db_query_job.sh
+│   │   └── db_update_job_status.sh
+│   ├── marker_env_backup.yml
+│   ├── scripts
+│   │   ├── convertDoc.py
+│   │   ├── process_job.slurm
+│   │   └── submit_pdfRemediation.sh
+│   ├── watcher.log
+│   └── watcher.sh
+└── frontend
+    ├── README.md
+    ├── WebsitePDFs
+    ├── app.R
+    ├── downloads
+    ├── server.R
+    ├── ui.R
+    ├── winscp_log.txt
+    └── winscp_sync_generated.txt
+```
+To run: 
+```
+tree -I 'conda|sampleOutputs|examplePDFs'
 ```
 
 ---
