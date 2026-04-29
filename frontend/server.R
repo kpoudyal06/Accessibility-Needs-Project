@@ -381,7 +381,7 @@ server <- function(input, output, session) {
       
       win_dl_dir <- sprintf("C:\\Users\\%s\\Downloads\\Accessibility-Needs-Project\\frontend\\downloads\\%s\\", 
                            win_user, job_id)
-      remote_out_dir <- sprintf("%s/%s/output", cluster_base_path, job_id)
+      remote_out_dir <- sprintf("%s/%s/final_results", cluster_base_path, job_id)
       
       winscp_script_wsl <- tempfile(pattern = "get_files_", 
                                     tmpdir = wsl_frontend_dir, fileext = ".txt")
