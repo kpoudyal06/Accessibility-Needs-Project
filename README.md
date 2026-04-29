@@ -25,39 +25,8 @@ sudo apt install -y libcurl4-openssl-dev libssl-dev libxml2-dev build-essential
 sudo apt install -y r-cran-shiny r-cran-bslib r-cran-fs r-cran-sass
 R -e "packageVersion('shiny')"
 ```
-4. You also need to install the postgresql package:
-'''bash
-sudo apt update
-sudo apt install postgresql postgresql-contrib
-'''
 
-5. Once installed,d the service must be started:
-'''bash
-sudo service postgresql start
-'''
-6. Check its status:
-'''bash
-sudo service postgresql status
-'''
 
-7. Create the user and the database within the postgres shell. This will include the needed credentials to run the DB:
-'''SQL
-CREATE USER dbadmin WITH PASSOWRD 'dbpass';
-CREATE DATABASE accessibility_db OWNER dbadmin;
-GRANT ALL PRIVILEGES ON DATABASE accessibility_db TO dbadmin;
-'''
-
-8. Run the schema file once to create all tables (Note: Any changes made to createDB.sql requires this command to be rerun):
-'''bash
-psql -U dbadmin -h localhost -d accessibility_db -f createDB.sql
-'''
-
-You can verify the setup with the following commands:
-'''bash
-psql -U dbadmin -h localhost -d accessibility_db
-SQL
-\dt
-'''
 ---
 
 ## Setup Guide
@@ -83,28 +52,8 @@ CLUSTER_PWD="your_umbc_hpc_password"
 
 5. Install the needed DB packages from within the R command line:
 '''R
-   install.packages("RPostgres")
+   install.packages("RSQLite")
    install.packages("DBI")
-'''
-
-The DB also requires a connection to the HPC cluster. This is done via tunneling. There will be two terminals running congruently to ensure proper connection. To successfully create this tunnel:
-
-1. Edit/Create your config file under nano ~/.ssh/config. 
-2. Add the following lines to your config file:
-'''ssh
-Host umbc-cluster
-   HostName chip.rs.umbc.edu
-   User your_umbc_user_here
-   LocalForward 5433 localhost:5432
-'''
-
-3. Run the following command. It will establish a connection with the HPC cluster:
-'''Bash
-ssh -fN umbc-cluster
-'''
-To ensure connection, run:
-'''Bash
-netstat -tulnp | grep 5433
 '''
 
 4. Open WSL in a new terminal to run app.
@@ -119,6 +68,23 @@ netstat -tulnp | grep 5433
    ```
 3. You should see a message saying `Background WinSCP sync initiated using dynamic script.` followed by `Listening on http://0.0.0.0:1234`.
 4. Open your Windows web browser and navigate to **http://localhost:1234**.
+
+### Confirm Database is connected to app
+1. After being run once, a file titled 'accessibility.db' will be created in the frontend directory. This is the working database of the app.
+2. In the terminal, enter the database:
+   '''bash
+   sqlite3 accessibility.db
+   "''
+3. Ensure the tables have been created:
+   '''sqlite
+   .tables
+   '''
+   You should see Users, Submissions, and HPCJobs listed.
+4. Check that the submission variables have been properly stored:
+   '''sqlite
+   SELECT * FROM Users;
+   SELECT * FROM Submissions;
+   SELECT * FROM HPCJob;
 
 ### Testing the Pipeline
 
