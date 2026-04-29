@@ -1,0 +1,8 @@
+
+EnvironmentLocationNotFound: Not a conda environment: /umbc/class/cmsc447sp26/common/conda/marker_env
+
+/cm/local/apps/slurm/var/spool/job169579/slurm_script: line 50: marker: command not found
+Traceback (most recent call last):
+  File "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/scripts/convertDoc.py", line 5, in <module>
+    from reportlab.pdfgen import canvas
+ModuleNotFoundError: No module named 'reportlab'

@@ -27,7 +27,7 @@ module load ollama/0.13.5
 eval "$(conda shell.bash hook)"
 
 echo "Activating Conda environment: marker_env"
-conda activate /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/conda
+conda activate /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/conda/marker_env
 
 # --- 2. STARTING OLLAMA SERVER ---
 echo "Starting local Ollama server..."
