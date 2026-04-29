@@ -1,5 +1,5 @@
 library(DBI)
-library(RPostgres)
+library(RSQLite)
 
 win_user     <- Sys.getenv("WIN_USER")
 cluster_user <- Sys.getenv("CLUSTER_USER")
@@ -10,19 +10,32 @@ winscp_exe   <- "/mnt/c/Program Files (x86)/WinSCP/WinSCP.com"
 cluster_base_path <- "/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/fileUploadLocation"
 
 server <- function(input, output, session) {
-  con <- tryCatch({
-    DBI::dbConnect(
-      RPostgres::Postgres(),
-      dbname = "accessibility_db",
-      host = "localhost",
-      port = 5432,
-      user = "dbadmin",
-      password = "dbpass"
-    )
-  }, error = function(e) {
-    message("DB connection failed: ", e$message)
-    NULL
-  })
+  db_path <- file.path(getwd(), "accessibility.db")
+
+  # Create connection
+  con <- dbConnect(RSQLite::SQLite(), db_path)
+
+  # Enable FK support
+  dbExecute(con, "PRAGMA foreign_keys = ON;")
+
+  # Check if tables exist
+  tables <- dbListTables(con)
+
+  # Initialize schema if table does not exist or is empty
+  if (!all(c("Users", "Submissions", "HPCJob") %in% tables)) {
+  sql_raw <- paste(readLines("createDB.sql"), collapse = "\n")
+  
+  # Split into individual statements and drop empty ones
+  statements <- strsplit(sql_raw, ";")[[1]]
+  statements <- trimws(statements)
+  statements <- statements[nchar(statements) > 0]
+  
+  for (stmt in statements) {
+    dbExecute(con, stmt)
+  }
+  
+  message("Schema created successfully.")
+  }
 
   # Reactive values for upload tracking
   submitted <- reactiveVal(FALSE)
@@ -130,22 +143,20 @@ server <- function(input, output, session) {
       # Database Inserts
     if (!is.null(con)) {
       # Insert User
-      user_result <- dbGetQuery(con, sprintf("
+      dbExecute(con, sprintf("
         INSERT INTO Users (Student_ID, Email)
-        VALUES ('%s', '%s')
-        RETURNING User_ID AS user_id;
+        VALUES ('%s', '%s');
       ", input$student_id, input$email))
 
-      user_id <- user_result$user_id[1]
+      user_id <- dbGetQuery(con, "SELECT last_insert_rowid()")[1,1]
 
       # Insert Submission
-      submission_result <- dbGetQuery(con, sprintf("
+      dbExecute(con, sprintf("
         INSERT INTO Submissions (User_ID, Upload_Timestamp, File_Name)
-        VALUES (%d, NOW(), '%s')
-        RETURNING PDF_Submission_ID AS pdf_submission_id;
+        VALUES (%d, datetime('now'), '%s');
       ", user_id, input$file1$name[1]))
 
-      submission_id <- submission_result$pdf_submission_id[1]
+      submission_id <- dbGetQuery(con, "SELECT last_insert_rowid()")[1,1]
 
       # Insert Job
       dbExecute(con, sprintf("
