@@ -181,28 +181,28 @@ Accessibility-Needs-Project
 ├── backend                            
 │   ├── clearBackend.sh                 # Just clears the .db and JOB_XYZ files in the backend
 │   ├── createDB.sql                    # Creates the initial database
-│   ├── db_scripts  
-│   │   ├── db_init.sh
-│   │   ├── db_insert_job.sh
+│   ├── db_scripts                      
+│   │   ├── db_init.sh                  # Initializes database
+│   │   ├── db_insert_job.sh            
 │   │   ├── db_insert_submission.sh
 │   │   ├── db_insert_user.sh
 │   │   ├── db_query_job.sh
 │   │   └── db_update_job_status.sh
-│   ├── marker_env_backup.yml
+│   ├── marker_env_backup.yml           # Lists all the dependencies of our conda environment, in case we need to remake it
 │   ├── scripts
-│   │   ├── convertDoc.py
-│   │   ├── process_job.slurm
-│   │   └── submit_pdfRemediation.sh
-│   ├── watcher.log
-│   └── watcher.sh
+│   │   ├── convertDoc.py               # Converts MarkerLLM output to html/pdf
+│   │   ├── process_job.slurm           
+│   │   └── submit_pdfRemediation.sh    # Submits a directory to the cluster for remediation
+│   ├── watcher.log                     # Log of watcher script
+│   └── watcher.sh                      # Runs on a loop through the database, updating it. Runs the backend
 └── frontend
-    ├── README.md
-    ├── WebsitePDFs
-    ├── app.R
-    ├── server.R
-    ├── ui.R
-    ├── winscp_log.txt
-    └── winscp_sync_generated.txt
+    ├── README.md                       # README, information, and guide to the frontend
+    ├── WebsitePDFs                     # Local pdf upload location
+    ├── app.R                           
+    ├── server.R                        # Manages database calls and upload/download mechanics
+    ├── ui.R                            # Holds UI elements for the website
+    ├── winscp_log.txt                  
+    └── winscp_sync_generated.txt       
 ```
 To run: 
 ```
