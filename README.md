@@ -37,7 +37,6 @@ sudo apt install -y r-cran-shiny r-cran-bslib r-cran-fs r-cran-sass
 R -e "packageVersion('shiny')"
 ```
 
-**Note:** You do **NOT** need to install `RSQLite` or `DBI` packages anymore. Database operations are handled by the backend.
 
 ---
 
