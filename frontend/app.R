@@ -1,5 +1,6 @@
 library(shiny)
 library(bslib)
+library(shinyWidgets)
 
 # Increase max upload size to 30MB
 options(shiny.maxRequestSize = 30 * 1024^2)
