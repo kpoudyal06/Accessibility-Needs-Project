@@ -190,8 +190,10 @@ Accessibility-Needs-Project
 │   ├── marker_env_backup.yml           # Lists all the dependencies of our conda environment, in case we need to remake it
 │   ├── scripts
 │   │   ├── convertDoc.py               # Converts MarkerLLM output to html/pdf
-│   │   ├── process_job.slurm           
+│   │   ├── process_job.slurm
+│   │   ├── send_completion_email.py    # Sends Completion Email to User Once Remediation Done         
 │   │   └── submit_pdfRemediation.sh    # Submits a directory to the cluster for remediation
+
 │   ├── watcher.log                     # Log of watcher script
 │   └── watcher.sh                      # Runs on a loop through the database, updating it. Runs the backend
 └── frontend
