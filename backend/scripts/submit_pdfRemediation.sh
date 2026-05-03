@@ -55,3 +55,11 @@ python /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/script
 # --- 5. CLEANUP ---
 echo "Job finished at $(date)."
 # kill $OLLAMA_PID
+
+# --- 6. FINALIZE AND NOTIFY ---
+# This is the "Finish Line"
+echo "Updating Database and sending email for Slurm Job: $SLURM_JOB_ID"
+
+/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/db_scripts/db_update_job_status.sh "$SLURM_JOB_ID" "Completed"
+
+python3 /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/scripts/send_completion_email.py "$SLURM_JOB_ID" "$SUB_ID"

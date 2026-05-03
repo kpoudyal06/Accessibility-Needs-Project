@@ -29,5 +29,6 @@ CREATE TABLE HPCJob(
 	Final_File_Size_KB INTEGER,
 	Math_Density_Per_Page REAL,
 	Final_Outcome TEXT,
+	Email_Sent INTEGER DEFAULT 0, -- Added for the completed email automation
 	FOREIGN KEY (PDF_Submission_ID) REFERENCES Submissions(PDF_Submission_ID)
 );
