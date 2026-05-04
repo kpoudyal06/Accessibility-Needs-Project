@@ -37,6 +37,9 @@ sudo apt install -y r-cran-shiny r-cran-bslib r-cran-fs r-cran-sass
 R -e "packageVersion('shiny')"
 ```
 
+For The Google OAuth2 Authentication to run properly, the httr package must be installed from R:
+'''bash
+   R -e "install.packages("httr")
 
 ---
 

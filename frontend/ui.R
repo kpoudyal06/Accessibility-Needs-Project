@@ -131,7 +131,7 @@ main_app_ui <- page_navbar(
                   p("Please tell us about your experience! "),
                   tags$a(
                     "Feedback Form",
-                    href = "",
+                    href = "https://forms.gle/J4jWBw2bE6D3iAjeA",
                     target = "_blank",
                     class = "btn-func-umbc"
                   ),
