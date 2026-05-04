@@ -95,9 +95,97 @@ is_valid_pdf <- function(file) {
   all(tolower(tools::file_ext(file$name)) == "pdf")
 }
 
-
 server <- function(input, output, session) {
-  
+  user_email <- reactiveVal(NULL)
+  observe({
+    hash <- session$clientData$url_hash
+
+    if (is.null(hash) || hash == "") return()
+
+    hash_clean <- sub("^#", "", hash)
+    params <- parseQueryString(hash_clean)
+
+    if (is.null(params$access_token)) return()
+
+    token <- params$access_token
+
+    res <- tryCatch({
+      httr::GET(
+        "https://www.googleapis.com/oauth2/v2/userinfo",
+        httr::add_headers(Authorization = paste("Bearer", token))
+      )
+    }, error = function(e) {
+      showNotification(paste("Network error:", e$message), type = "error")
+      return(NULL)
+    })
+
+    if (is.null(res)) return()
+
+    # Check HTTP status before trying to parse
+    if (httr::status_code(res) != 200) {
+      showNotification(
+        paste("Google auth failed. Status:", httr::status_code(res)), 
+        type = "error"
+      )
+      return()
+    }
+
+    raw_text <- httr::content(res, as = "text", encoding = "UTF-8")
+    
+    info <- tryCatch({
+      jsonlite::fromJSON(raw_text)
+    }, error = function(e) {
+      showNotification("Failed to parse Google response", type = "error")
+      return(NULL)
+    })
+
+    if (is.null(info)) return()
+
+    email <- info$email
+
+    if (!is.null(email) && grepl("@umbc\\.edu$", email)) {
+      user_email(email)
+    } else {
+      showNotification("Access restricted to UMBC accounts", type = "error")
+    }
+  })
+
+  output$auth_ui <- renderUI({
+    if (is.null(user_email())) {
+    div(
+      class = "d-flex flex-column justify-content-center align-items-center",
+      style = "height: 100vh;",
+
+      img(src = "UMBC-primary-logo-RGB.png", width = "200px"),
+      br(),
+      h2("UMBC PDF Remediation Tool"),
+      p("Sign in with your UMBC Account"),
+
+      tags$a(
+        href = paste0(
+          "https://accounts.google.com/o/oauth2/v2/auth?",
+          "client_id=516901053431-dnt77bjsqqrcbi1o38jdf42bb4pdran0.apps.googleusercontent.com",
+          "&redirect_uri=http://127.0.0.1:1234",
+          "&response_type=token",
+          "&scope=email%20profile"
+        ),
+        class = "btn btn-primary",
+        "Login with Google"
+      )
+    )
+    }
+    else {
+      # Load Full APP
+      tagList(
+        div(
+          style = "padding: 10px; text-align: right;",
+          strong(paste("Logged in as:", user_email()))
+        ),
+        tagList(main_app_ui)
+      )
+    }
+  }) 
+
   # Initialize database on cluster (run once at startup)
   execute_remote_db_command("db_init.sh")
   

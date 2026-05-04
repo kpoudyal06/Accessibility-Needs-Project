@@ -22,6 +22,14 @@ while true; do
                 
                 echo "$(date): New submission detected: $SUB_ID" >> "$LOG_FILE"
 
+		# NEW: Get the REAL integer ID from the file R Shiny created
+                if [ -f "${folder}submission_id.txt" ]; then
+                    REAL_DB_SUB_ID=$(cat "${folder}submission_id.txt")
+                else
+                    echo "$(date): ERROR - submission_id.txt not found for $SUB_ID" >> "$LOG_FILE"
+                    continue
+                fi
+
                 # 1. Submit the SLURM job
                 # Ensure variables are quoted to handle weird folder names
                 SUBMIT_OUT=$(sbatch --output="${folder}slurm_%j.out" --error="${folder}slurm_%j.err" "$SBATCH_SCRIPT" "$folder" "$SUB_ID")
@@ -36,7 +44,7 @@ while true; do
                     
                     # 3. Insert into DB (Now SUB_ID is actually defined)
                     if [ -f "$DB_INSERT_SCRIPT" ]; then
-                        bash "$DB_INSERT_SCRIPT" "$SLURM_ID" "$SUB_ID" >> "$LOG_FILE"
+                        bash "$DB_INSERT_SCRIPT" "$SLURM_ID" "$REAL_DB_SUB_ID" >> "$LOG_FILE"
                         echo "$(date): Database successfully updated for $SUB_ID" >> "$LOG_FILE"
                     else
                         echo "$(date): ERROR - Database script missing" >> "$LOG_FILE"

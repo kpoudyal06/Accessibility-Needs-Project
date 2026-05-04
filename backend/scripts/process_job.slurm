@@ -15,6 +15,8 @@ source activate marker_env
 JOB_DIR=$1      # The directory containing the PDFs (e.g. /path/to/submission_id)
 SUB_ID=$2       # The internal PDF submission ID for logging
 
+DB_KEY=$SLURM_JOB_ID #6-7 Digit Number 
+
 echo "Starting processing for Submission: $SUB_ID"
 echo "Job started at: $(date)"
 start_time=$(date +%s)
@@ -43,3 +45,10 @@ echo "gpu:$gpu_type" >> "$JOB_DIR/metrics.stats"
 echo "nodes:$SLURM_NNODES" >> "$JOB_DIR/metrics.stats"
 
 echo "Job finished at: $(date)"
+
+# --- 5. FINALIZE AND NOTIFY ---
+# This calls the reference script you just showed me
+/umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/db_update_job_status.sh "$SLURM_JOB_ID" "Completed"
+
+# This sends the email
+python3 /umbc/class/cmsc447sp26/common/Accessibility-Needs-Project/backend/scripts/send_completion_email.py "$SLURM_JOB_ID" "$SUB_ID"
