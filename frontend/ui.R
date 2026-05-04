@@ -1,4 +1,4 @@
-ui <- page_navbar(
+main_app_ui <- page_navbar(
   title = "File Remediation Tool",
   id = "tabs",
   navbar_options = navbar_options(
@@ -141,4 +141,8 @@ ui <- page_navbar(
               )
             )
   )
+)
+
+ui <- fluidPage(
+  uiOutput("auth_ui")
 )
