@@ -196,7 +196,6 @@ Accessibility-Needs-Project
 │   │   ├── process_job.slurm
 │   │   ├── send_completion_email.py    # Sends Completion Email to User Once Remediation Done         
 │   │   └── submit_pdfRemediation.sh    # Submits a directory to the cluster for remediation
-
 │   ├── watcher.log                     # Log of watcher script
 │   └── watcher.sh                      # Runs on a loop through the database, updating it. Runs the backend
 └── frontend
