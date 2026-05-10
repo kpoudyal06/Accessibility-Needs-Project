@@ -10,16 +10,10 @@ from reportlab.platypus import Paragraph, Frame
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.utils import ImageReader
 
-# --- CONFIGURATION ---
-HTML_FONT_SIZE = "14px"    # Scaled up from 12px
-PDF_FONT_SIZE = 11         # Scaled up from 9
-MATH_SCALE_HTML = 1.1      # MathJax scaling
-MATH_FONT_MUL_PDF = 0.7    # Multiplier for math height in PDF
-
 # Attempt to load matplotlib for math rendering
 try:
     import matplotlib
-    matplotlib.use('Agg') 
+    matplotlib.use('Agg') # Use non-interactive backend
     import matplotlib.pyplot as plt
     HAS_MATPLOTLIB = True
 except ImportError:
@@ -37,8 +31,8 @@ os.makedirs(args.output, exist_ok=True)
 # Styles Setup
 styles = getSampleStyleSheet()
 normal_style = styles['Normal']
-normal_style.fontSize = PDF_FONT_SIZE
-normal_style.leading = PDF_FONT_SIZE + 2
+normal_style.fontSize = 9
+normal_style.leading = 11
 
 def get_all_blocks(data):
     """Recursively finds all blocks with a bbox to ensure 100% capture rate."""
@@ -56,6 +50,7 @@ def get_all_blocks(data):
 def clean_for_pdf_text(raw_html):
     """Cleans HTML tags for ReportLab Paragraphs."""
     if not raw_html: return ""
+    # Convert math tags to text placeholders for the 'Normal' text layer
     text = re.sub(r'<math[^>]*>', '', raw_html)
     text = re.sub(r'</math>', '', text)
     text = re.sub(r'<[^>]+>', '', text)
@@ -64,6 +59,7 @@ def clean_for_pdf_text(raw_html):
 
 def extract_latex(raw_html):
     """Converts Marker HTML tags into LaTeX strings for rendering."""
+    # Replace <math> tags with $ for matplotlib/MathJax
     text = re.sub(r'<math[^>]*>', '$', raw_html)
     text = re.sub(r'</math>', '$', text)
     text = re.sub(r'<[^>]+>', '', text)
@@ -87,11 +83,11 @@ for json_path in json_files:
     # --- HTML HEADER ---
     html_lines = [
         "<!DOCTYPE html><html><head>",
-        f"<script>window.MathJax = {{ tex: {{ inlineMath: [['$', '$']] }}, chtml: {{ scale: {MATH_SCALE_HTML} }} }};</script>",
+        "<script>window.MathJax = { tex: { inlineMath: [['$', '$']] }, chtml: { scale: 0.9 } };</script>",
         "<script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>",
         "<style>",
         f"  .page {{ position: relative; width: {page_width}px; height: {page_height}px; border: 1px solid #000; margin: 20px auto; }}",
-        f"  .box {{ position: absolute; border: 1px solid rgba(255,0,0,0.2); overflow: visible; display: flex; align-items: center; font-size: {HTML_FONT_SIZE}; }}",
+        "  .box { position: absolute; border: 1px solid rgba(255,0,0,0.2); overflow: visible; display: flex; align-items: center; font-size: 12px; }",
         "  mjx-container { margin: 0 !important; }",
         "</style></head><body>"
     ]
@@ -113,7 +109,7 @@ for json_path in json_files:
             raw_html = block.get('html', '')
             btype = block.get('block_type', '')
 
-            # 1. HTML Output
+            # 1. HTML Output (with clipping fix)
             math_ready_html = extract_latex(raw_html)
             html_lines.append(f"<div class='box' style='left:{x1}px; top:{y1}px; width:{bw}px; height:{bh}px;'>{math_ready_html}</div>")
 
@@ -121,43 +117,32 @@ for json_path in json_files:
             pdf_y = page_height - y2
             
             if btype == "Equation" and HAS_MATPLOTLIB:
+                # Render Visual Math
                 try:
-                    # Create figure with no margins
-                    fig = plt.figure(figsize=(bw/72, bh/72))
-                    ax = fig.add_axes([0, 0, 1, 1])
-                    ax.axis('off')
-                    
-                    # Calculate font size based on box height
-                    # Uses MATH_FONT_MUL_PDF to ensure it doesn't touch the top/bottom edges
-                    f_size = max(6, bh * MATH_FONT_MUL_PDF)
-                    
-                    ax.text(0.5, 0.5, math_ready_html, 
-                            size=f_size, 
-                            ha='center', va='center', 
-                            transform=ax.transAxes)
+                    plt.figure(figsize=(bw/72, bh/72))
+                    plt.axis('off')
+                    # Center the LaTeX string in the box
+                    plt.text(0.5, 0.5, math_ready_html, size=max(7, bh*0.6), ha='center', va='center', transform=plt.gcf().transFigure)
                     
                     img_buf = io.BytesIO()
-                    plt.savefig(img_buf, format='png', transparent=True, dpi=300) # Higher DPI for clearer math
-                    plt.close(fig)
+                    plt.savefig(img_buf, format='png', transparent=True, dpi=200)
+                    plt.close()
                     img_buf.seek(0)
-                    
                     c.drawImage(ImageReader(img_buf), x1, pdf_y, width=bw, height=bh, mask='auto')
-                except Exception as e:
-                    print(f"Math render failed: {e}")
-                    plt.close() 
+                except:
+                    plt.close() # Fallback to text if math rendering fails
                 
-                # Invisible text layer
+                # Accessibility: Invisible Text layer for screen readers/searching
                 c.setFillAlpha(0) 
                 c.setFont("Helvetica", 1)
                 c.drawString(x1, pdf_y + (bh/2), math_ready_html)
                 c.setFillAlpha(1)
             else:
+                # Regular Text rendering
                 clean_text = clean_for_pdf_text(raw_html)
                 if clean_text:
-                    # Frames use the bottom-left coordinate
-                    frame = Frame(x1, pdf_y, bw, bh, leftPadding=0, bottomPadding=0, rightPadding=0, topPadding=0)
+                    frame = Frame(x1, pdf_y, bw, bh, leftPadding=1, bottomPadding=1, rightPadding=1, topPadding=1)
                     p = Paragraph(clean_text, normal_style)
-                    # Use canv=c to allow drawing directly if needed, but addFromList handles the frame
                     frame.addFromList([p], c)
 
         html_lines.append("</div>")
