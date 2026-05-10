@@ -12,7 +12,7 @@ from reportlab.lib.utils import ImageReader
 
 # --- CONFIGURATION ---
 HTML_FONT_SIZE = "14px"    # Scaled up from 12px
-PDF_FONT_SIZE = 11         # Scaled up from 9
+PDF_FONT_SIZE = 7         # Scaled up from 9
 MATH_SCALE_HTML = 1.1      # MathJax scaling
 MATH_FONT_MUL_PDF = 0.7    # Multiplier for math height in PDF
 
